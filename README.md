@@ -1,5 +1,5 @@
 # Projet Web
-Projet Web dans le cadre du BTS Services informatiques aux organisations, option Solutions Logicielles et Applications Métier
+Projet Web dans le cadre du BTS Services informatiques aux organisations, option Solutions Logicielles et Applications Métier <br>
 <b>Langages utilisés :<b>
 <ul>
   <li>HTML</li>
