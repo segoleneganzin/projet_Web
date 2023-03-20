@@ -12,9 +12,9 @@ Projet Web dans le cadre du BTS Services informatiques aux organisations, option
   <li>Figma</li>
 </ul>
 
-##Version 
+## Version 
 
-##Github 
+## Github 
 
 ## Installation des modules nécessaires :
 
