@@ -25,7 +25,7 @@ Extension VSCOD : Live Sass Compiler
 ### MySql 
 
 ## Lancer en localhost
-Placer le dossier dans le www du wamp server
+Placer le dossier dans le www du wamp server. <br/>
 Lancer wamp et ouvrir le localhost
 
 ## Contributeurs
