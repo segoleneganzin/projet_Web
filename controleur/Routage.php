@@ -8,10 +8,9 @@
 function redirigeVers($action = "defaut")
 {
 
-    $lesActions = array();
-    $lesActions["defaut"] = "index.php";
+    $lesActions = [];
+    $lesActions["defaut"] = "TestC.php";
     $lesActions["connexion"] = "Authentification.php";
-    $lesActions["inscription"] = "Inscription.php";
 
     $controler_id = $lesActions[$action];
 

@@ -1,7 +1,7 @@
 <?php
 
 namespace DAO\Identite {
-    require("DAO.php");
+    // require("DAO.php");
 
     use DB\Connexion\Connexion;
     use Promed\Identite\Identite;
@@ -22,7 +22,7 @@ namespace DAO\Identite {
             $stmt->bindParam(':id', $id);
             $stmt->execute();
 
-            $row = $stmt->fetch();
+            $row = $stmt->fetch(\PDO::FETCH_ASSOC);
             $idIdentite = $row["id_identite"];
             $nom = $row["nom"];
             $prenom = $row["prenom"];

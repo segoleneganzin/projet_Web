@@ -1,0 +1,90 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: rgb(191, 191, 248);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  font-family: Arial;
+  color: #333;
+}
+
+nav {
+  left: 0px;
+  width: 100vw;
+  z-index: 100;
+}
+
+#menuGeneral {
+  text-align: center;
+  margin: auto auto;
+  list-style-type: none;
+  padding-left: 0px;
+}
+#menuGeneral li {
+  float: left;
+  width: 14.28%;
+  height: 100%;
+  vertical-align: middle;
+  line-height: 60px;
+}
+#menuGeneral li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+#menuGeneral li a {
+  display: inline-block;
+  vertical-align: middle;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+#menuGeneral li a img {
+  width: 10vw;
+  position: relative;
+  top: -10px;
+}
+
+#menuContextuel {
+  position: fixed;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  margin-top: 0px;
+  padding-top: 0px;
+  list-style-type: none;
+  padding-left: 0px;
+  border-radius: 3px;
+}
+#menuContextuel li {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-left: 8px;
+  /*background-color : rgba(238,144,9,0.3);*/
+}
+#menuContextuel li:first-child {
+  text-align: center;
+}
+#menuContextuel li a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10vh;
+}/*# sourceMappingURL=style.css.map */

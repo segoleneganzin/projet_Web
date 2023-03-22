@@ -1,0 +1,9 @@
+{
+  "name": "promed",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "sass": "sass --watch ./asset/stylesheet/style.scss:./asset/stylesheet/style.css"
+  }
+}

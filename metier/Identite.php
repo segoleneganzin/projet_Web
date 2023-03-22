@@ -108,5 +108,10 @@ namespace Promed\Identite {
             $this->adresse = $adresse;
             return $this;
         }
+        function __toString()
+        {
+            $rep = "<div class=\"infosIdentite\">id : [$this->idIdentite] nom : [$this->nom] prenom : [$this->prenom] tel : [$this->tel] mail : [$this->mail] mdp : [$this->mail] role : [$this->role] adresse : [$this->adresse]</div>";
+            return $rep;
+        }
     }
 }

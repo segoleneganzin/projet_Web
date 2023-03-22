@@ -1,0 +1,15 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: $principal-back_color;
+}
+main {
+  display: flex;
+  flex-direction: column;
+}
