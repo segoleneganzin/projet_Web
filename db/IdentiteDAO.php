@@ -1,6 +1,7 @@
 <?php
 
 namespace DAO\Identite {
+
     // require("DAO.php");
 
     use DB\Connexion\Connexion;
@@ -9,9 +10,33 @@ namespace DAO\Identite {
     class IdentiteDAO extends \DAO\DAO
     {
 
+
         function __construct()
         {
             parent::__construct("id_identite", "identite");
+        }
+
+        public function create($objet)
+        {
+            $sql = "INSERT INTO $this->table (nom, prenom, tel, mail, mdp, role, id_adresse) 
+            VALUES (:nom, :prenom, :tel, :mail, :mdp, :role, :id_adresse)";
+            $stmt = Connexion::getInstance()->prepare($sql);
+            $nom = $objet->getNom();
+            $prenom = $objet->getPrenom();
+            $tel = $objet->getTel();
+            $mail = $objet->getMail();
+            $mdp = $objet->getMdp();
+            $role = $objet->getRole();
+            $id_adresse = $objet->getAdresse();
+            $stmt->bindParam(':nom', $nom);
+            $stmt->bindParam(':prenom', $prenom);
+            $stmt->bindParam(':tel', $tel);
+            $stmt->bindParam(':mail', $mail);
+            $stmt->bindParam(':mdp', $mdp);
+            $stmt->bindParam(':role', $role);
+            $stmt->bindParam(':id_adresse', $id_adresse);
+            $stmt->execute();
+            $objet->setId(parent::getLastKey());
         }
 
         public function read($id)
@@ -22,23 +47,26 @@ namespace DAO\Identite {
             $stmt->bindParam(':id', $id);
             $stmt->execute();
 
-            $row = $stmt->fetch(\PDO::FETCH_ASSOC);
-            $idIdentite = $row["id_identite"];
+            $row = $stmt->fetch();
+            $id_identite = $row["id_identite"];
             $nom = $row["nom"];
             $prenom = $row["prenom"];
             $tel = $row["tel"];
             $mail = $row["mail"];
             $mdp = $row["mdp"];
             $role = $row["role"];
-            $idAdr = $row["id_adresse"];
-            $rep = new \Promed\Identite\Identite($nom, $prenom, $tel, $mail, $mdp, $role, $idAdr);
-            $rep->setId($idIdentite);
+            $id_adresse = $row["id_adresse"];
+            $daoAdresse = new \DAO\Adresse\AdresseDAO();
+            $adr = $daoAdresse->read($id_adresse);
+            $rep = new \Promed\Identite\Identite($nom, $prenom, $tel, $mail, $mdp, $role, $adr);
+            $rep->setId($id_identite);
             return $rep;
         }
+
         public function update($objet)
         {
             $sql = "UPDATE $this->table SET nom = :nom, prenom = :prenom, tel = :tel, mail = :mail,
-        mdp = :mdp, role = :role, id_adresse = :idAdr  WHERE $this->key=:id";
+        mdp = :mdp, role = :role, id_adresse = :id_adresse  WHERE $this->key=:id";
             $stmt = Connexion::getInstance()->prepare($sql);
             $id = $objet->getId();
             $nom = $objet->getNom();
@@ -47,7 +75,7 @@ namespace DAO\Identite {
             $mail = $objet->getMail();
             $mdp = $objet->getMdp();
             $role = $objet->getRole();
-            $idAdr = $objet->getAdresse();
+            $id_adresse = $objet->getAdresse();
             $stmt->bindParam(':id', $id);
             $stmt->bindParam(':nom', $nom);
             $stmt->bindParam(':prenom', $prenom);
@@ -55,7 +83,7 @@ namespace DAO\Identite {
             $stmt->bindParam(':mail', $mail);
             $stmt->bindParam(':mdp', $mdp);
             $stmt->bindParam(':role', $role);
-            $stmt->bindParam(':idAdr', $idAdr);
+            $stmt->bindParam(':id_adresse', $id_adresse);
             $stmt->execute();
         }
 
@@ -67,28 +95,6 @@ namespace DAO\Identite {
             $id = $objet->getId();
             $stmt->bindParam(':id', $id);
             $stmt->execute();
-        }
-        public function create($objet)
-        {
-            $sql = "INSERT INTO $this->table (nom, prenom, tel, mail, mdp, role, id_adresse) 
-            VALUES (:nom, :prenom, :tel, :mail, :mdp, :role, :idAdr)";
-            $stmt = Connexion::getInstance()->prepare($sql);
-            $nom = $objet->getNom();
-            $prenom = $objet->getPrenom();
-            $tel = $objet->getTel();
-            $mail = $objet->getMail();
-            $mdp = $objet->getMdp();
-            $role = $objet->getRole();
-            $idAdr = $objet->getAdresse();
-            $stmt->bindParam(':nom', $nom);
-            $stmt->bindParam(':prenom', $prenom);
-            $stmt->bindParam(':tel', $tel);
-            $stmt->bindParam(':mail', $mail);
-            $stmt->bindParam(':mdp', $mdp);
-            $stmt->bindParam(':role', $role);
-            $stmt->bindParam(':idAdr', $idAdr);
-            $stmt->execute();
-            $objet->setId(parent::getLastKey());
         }
 
         static function getIdentites()
@@ -104,7 +110,7 @@ namespace DAO\Identite {
                 $rep .= "</td><td>" . $row["mail"];
                 $rep .= "</td><td>" . $row["mdp"];
                 $rep .= "</td><td>" . $row["role"];
-                $rep .= "</td><td>" . $row["idAdr"] . "</td></tr>";
+                $rep .= "</td><td>" . $row["id_adresse"] . "</td></tr>";
             }
             return $rep . "</table>";
         }

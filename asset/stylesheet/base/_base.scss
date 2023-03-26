@@ -8,8 +8,11 @@
 
 body {
   background: $principal-back_color;
+  overflow-x: hidden;
+  width: 90vw;
 }
 main {
   display: flex;
   flex-direction: column;
+  margin: auto;
 }

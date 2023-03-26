@@ -16,6 +16,23 @@ namespace DAO\Adresse {
             parent::__construct("id_adresse", "adresse");
         }
 
+        public function create($objet)
+        {
+            $sql = "INSERT INTO $this->table (num, rue, cp, ville) 
+            VALUES (:num, :rue, :cp, :ville)";
+            $stmt = Connexion::getInstance()->prepare($sql);
+            $num = $objet->getNum();
+            $rue = $objet->getRue();
+            $cp = $objet->getCp();
+            $ville = $objet->getVille();
+            $stmt->bindParam(':num', $num);
+            $stmt->bindParam(':rue', $rue);
+            $stmt->bindParam(':cp', $cp);
+            $stmt->bindParam(':ville', $ville);
+            $stmt->execute();
+            $objet->setId(parent::getLastKey());
+        }
+
         public function read($id)
         {
             // On utilise le prepared statemet qui simplifie les typages
@@ -60,23 +77,6 @@ namespace DAO\Adresse {
             $id = $objet->getId();
             $stmt->bindParam(':id', $id);
             $stmt->execute();
-        }
-
-        public function create($objet)
-        {
-            $sql = "INSERT INTO $this->table (num, rue, cp, ville) 
-            VALUES (:num, :rue, :cp, :ville)";
-            $stmt = Connexion::getInstance()->prepare($sql);
-            $num = $objet->getNum();
-            $rue = $objet->getRue();
-            $cp = $objet->getCp();
-            $ville = $objet->getVille();
-            $stmt->bindParam(':num', $num);
-            $stmt->bindParam(':rue', $rue);
-            $stmt->bindParam(':cp', $cp);
-            $stmt->bindParam(':ville', $ville);
-            $stmt->execute();
-            $objet->setId(parent::getLastKey());
         }
 
         static function getAdresses()

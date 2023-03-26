@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `patient` (
 DROP TABLE IF EXISTS `praticien`;
 CREATE TABLE IF NOT EXISTS `praticien` (
   `id_praticien` int(11) NOT NULL AUTO_INCREMENT,
-  `spacialiste` varchar(45) NOT NULL,
+  `specialiste` varchar(45) NOT NULL,
   `description` varchar(45) DEFAULT NULL,
   `id_identite` int(11) NOT NULL,
   PRIMARY KEY (`id_praticien`),
