@@ -1,0 +1,23 @@
+// ****************************utils import
+//Always import variables first because it's needed for others (compiled first)
+@import "./utils/variables";
+
+// ****************************base import
+@import "./base/base";
+@import "./base/typography";
+
+// ****************************layouts import
+@import "./layouts/header";
+@import "./layouts/form";
+
+// ****************************pages import
+@import "./pages/index";
+
+//needed sass installation : npm -g install sass (necessite nodeJS and npm)
+//It's possible to use sass without install neither sass or nodeJS :
+//extension : Live Sass Compiler
+//Parameters in package.json --> scripts
+//rename class with BEM method :
+//Block : .block
+//Element : .block__element
+//Modificateur : .block__element--modif || .block--modif
