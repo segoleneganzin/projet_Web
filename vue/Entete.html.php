@@ -19,6 +19,7 @@ if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
                 <li><a href="./?action=patient">Patient</a></li>
                 <li><a href="./?action=inscription">Inscription</a></li>
                 <li><a href="./?action=connexion">Connexion</a></li>
+                <li><a href="./?action=deconnexion">Déconnexion</a></li>
             </ul>
         </nav>
         <!-- <ul id="menuContextuel">

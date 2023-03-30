@@ -1,4 +1,8 @@
 body {
   font-family: Arial;
-  color: #333;
+  color: $principal-text-color;
+}
+a {
+  text-decoration: none;
+  color: $principal-text-color;
 }
