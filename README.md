@@ -2,7 +2,6 @@
 
 Projet Web dans le cadre du BTS Services informatiques aux organisations, option Solutions Logicielles et Applications Métier <br>
 <b>Langages et technologies utilisés :<b>
-
 <ul>
   <li>HTML</li>
   <li>CSS / SCSS</li>
@@ -23,8 +22,7 @@ Projet Web dans le cadre du BTS Services informatiques aux organisations, option
 Extension VSCOD : Live Sass Compiler
 
 ## Accès et mots de passes :
-
-### MySql
+### MySql 
 
 ## Lancer en localhost
 
@@ -32,6 +30,4 @@ Placer le dossier dans le www du wamp server. <br/>
 Lancer wamp et ouvrir le localhost
 
 ## Contributeurs
-
-Application réalisée dans le cadre du BTS SIO SLAM. <br/>
 Développée par Melwin Chenu, Marie-Caroline Gries, Anastacia Nagula, Ségolène Ganzin.
