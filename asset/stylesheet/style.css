@@ -7,20 +7,27 @@
 }
 
 body {
-  background: rgb(191, 191, 248);
+  background: rgb(243, 243, 247);
   overflow-x: hidden;
   width: 90vw;
 }
 
 main {
+  width: 100vw;
   display: flex;
   flex-direction: column;
   margin: auto;
+  overflow-x: hidden;
 }
 
 body {
   font-family: Arial;
-  color: #333;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
 
 nav {
@@ -89,12 +96,53 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 10vh;
+  margin: 10vh auto;
 }
 .form--input-container {
   display: flex;
   flex-direction: column;
 }
-.form--input-container input {
+.form--input-container input,
+.form--input-container textarea {
   margin-top: 2%;
+  border-radius: 10px;
+  padding: 2%;
+  border: none;
+}
+.form--input-container textarea {
+  height: 20vh;
+}
+.form h1 {
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 2%;
+}
+.form h2 {
+  text-align: center;
+  margin-top: 5%;
+}
+.form .button-submit {
+  margin-top: 10%;
+  font-weight: 600;
+}
+
+.container {
+  width: 60vw;
+  background-color: rgb(70, 70, 133);
+  margin: 5vh auto;
+  border-radius: 10px;
+}
+.container table,
+.container th,
+.container td {
+  border: 2px solid black;
+  padding-left: 1%;
+}
+.container table {
+  width: 100%;
+  margin: 5% auto;
+}
+.container thead {
+  text-align: center;
+  height: 10vh;
 }/*# sourceMappingURL=style.css.map */

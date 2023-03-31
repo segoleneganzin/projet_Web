@@ -1,15 +1,15 @@
 <?php
 
 /**
-*	Controleur secondaire : deconnexion 
-*/
+ *	Controleur secondaire : deconnexion 
+ */
 
 if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
-	// Un MVC utilise uniquement ses requêtes depuis le contrôleur principal : index.php
-    die('Erreur : '.basename(__FILE__));
+    // Un MVC utilise uniquement ses requêtes depuis le contrôleur principal : index.php
+    die('Erreur : ' . basename(__FILE__));
 }
 
-require_once RACINE . "/modele/authentification.inc.php";
+// require_once RACINE . "/modele/authentification.inc.php";
 
 // recuperation des donnees GET, POST, et SESSION
 
@@ -18,7 +18,7 @@ require_once RACINE . "/modele/authentification.inc.php";
 // traitement si necessaire des donnees recuperees
 // logout();
 
-                
+
 
 // appel du script de vue qui permet de gerer l'affichage des donnees
 $titre = "authentification";

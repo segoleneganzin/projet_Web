@@ -14,7 +14,7 @@ if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
 
             <input type="text" name="mail" placeholder="Email de connexion" />
             <input type="password" name="mdp" placeholder="Mot de passe" />
-            <input type="submit" />
+            <input type="submit" value="Connexion" class="button-submit" />
 
         </form>
 

@@ -11,9 +11,13 @@ function redirigeVers($action = "defaut")
     $lesActions = [];
     $lesActions["defaut"] = "TestC.php";
     $lesActions["connexion"] = "Authentification.php";
+    $lesActions["deconnexion"] = "Deconnexion.php";
     $lesActions["praticien"] = "Praticien.php";
+    $lesActions["accueil-praticien"] = "AccueilPraticien.php";
     $lesActions["patient"] = "Patient.php";
     $lesActions["inscription"] = "Inscription.php";
+    $lesActions["accueil"] = "TestC.php";
+    $lesActions["fiche-patient"] = "FichePatient.php";
 
     $controler_id = $lesActions[$action];
 
