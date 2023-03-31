@@ -1,4 +1,8 @@
+<!-- TODO condition d'affichage selon le role (patient/praticien) -->
+
 <div class="container">
+    <h1>Page rendez-vous</h1>
+
     <div class="entete-praticien">
         <h1>Bienvenue "prenom" "nom" </h1>
         <div class="date">"Date du jour" <br /> "heure"</div>
@@ -28,5 +32,6 @@
                 </tr>
             </tbody>
         </table>
+
     </div>
 </div>

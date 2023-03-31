@@ -2,10 +2,8 @@
 
 namespace DAO\Identite {
 
-    // require("DAO.php");
-
     use DB\Connexion\Connexion;
-    use Promed\Identite\Identite;
+    // use Promed\Identite\Identite;
 
     class IdentiteDAO extends \DAO\DAO
     {
@@ -75,7 +73,7 @@ namespace DAO\Identite {
             $mail = $objet->getMail();
             $mdp = $objet->getMdp();
             $role = $objet->getRole();
-            $id_adresse = $objet->getAdresse();
+            $id_adresse = $objet->getAdresse()->getId();
             $stmt->bindParam(':id', $id);
             $stmt->bindParam(':nom', $nom);
             $stmt->bindParam(':prenom', $prenom);
@@ -113,6 +111,26 @@ namespace DAO\Identite {
                 $rep .= "</td><td>" . $row["id_adresse"] . "</td></tr>";
             }
             return $rep . "</table>";
+        }
+        static function getUtilisateurByMailU($mail)
+        {
+            try {
+                // $sql = "SELECT * FROM identite WHERE mail=:mail";
+                // $stmt = Connexion::getInstance()->prepare($sql);
+                // $stmt->bindValue(':mail', $mail, \PDO::PARAM_STR);
+                // $stmt->execute();
+                // $resultat = $stmt->fetch(\PDO::FETCH_ASSOC);
+                // $resultat = Connexion::getInstance()->query($sql);
+                $cnx = Connexion::getInstance();
+                $req = $cnx->prepare("SELECT * FROM identite WHERE mail=:mail");
+                $req->bindValue(':mail', $mail, \PDO::PARAM_STR);
+                $req->execute();
+
+                $resultat = $req->fetch(\PDO::FETCH_ASSOC);
+            } catch (\PDOException $e) {
+                die("Erreur !: " . $e->getMessage());
+            }
+            return $resultat;
         }
     }
 }

@@ -13,6 +13,8 @@
 
 // ****************************pages import
 @import "./pages/index";
+@import "./pages/authentification";
+@import "./pages/choixRole";
 
 //needed sass installation : npm -g install sass (necessite nodeJS and npm)
 //It's possible to use sass without install neither sass or nodeJS :

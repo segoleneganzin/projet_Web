@@ -1,24 +1,21 @@
-<?php
-
-
-if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
-    // Un MVC utilise uniquement ses requêtes depuis le contrôleur principal : index.php
-    die('Erreur : ' . basename(__FILE__));
-}
-
-?>
+<img src="asset/images/promed_logo_3.png" alt="logo" class="image-connexion" />
 <div class="container">
     <div class="form">
         <h1>Connexion</h1>
         <form class="form--input-container" action="./?action=connexion" method="POST">
 
-            <input type="text" name="mail" placeholder="Email de connexion" />
+            <input type="text" name="mail" placeholder="Identifiant de connexion" />
             <input type="password" name="mdp" placeholder="Mot de passe" />
             <input type="submit" value="Connexion" class="button-submit" />
 
         </form>
 
         <br />
-        <a href="./?action=inscription">Inscription</a>
+
+        <?php
+        if (isset($_GET["action"]) && $_GET["action"] == "connexion-praticien") {
+            echo "<p>Nouveau praticien ? <a href='./?action=inscription'>Inscrivez-vous</a>";
+        }
+        ?>
     </div>
 </div>

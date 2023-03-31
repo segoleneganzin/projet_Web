@@ -2,64 +2,68 @@
 
 namespace Promed\Authentification {
 
-    // use Promed\Identite\Identite;
+    use DAO\Identite\IdentiteDAO;
 
+    class Authentification
+    {
+        static function login($mail, $mdp)
+        {
+            if (!isset($_SESSION)) {
+                session_start();
+            }
+            $util = \DAO\Identite\IdentiteDAO::getUtilisateurByMailU($mail);
+            $mdpBD = $util["mdp"];
+            $role = $util["role"];
+            // echo "$mail, $mdpBD, $mdp";
+            // var_dump(password_verify($mdp, $mdpBD));
 
-    // class Authentification
-    // {
-    //     // private $mailU = Identite::getMail();
-    //     // private $mdpU = Identite::getMdp();
+            $verify = password_verify($mdp, $mdpBD);
 
-    //     function login($mailU, $mdpU)
-    //     {
-    //         if (!isset($_SESSION)) {
-    //             session_start();
-    //         }
+            if ($verify) {
+                // le mot de passe est celui de l'utilisateur dans la base de donnees
+                $_SESSION["mail"] = $mail;
+                $_SESSION["mdp"] = $mdpBD;
+                $_SESSION["role"] = $role;
+            }
+        }
 
-    //         $util = Identite::getMail();
-    //         $mdpBD = $util["mdpU"];
+        static function logout()
+        {
+            if (!isset($_SESSION)) {
+                session_start();
+            }
+            unset($_SESSION["mail"]);
+            unset($_SESSION["mdp"]);
+            unset($_SESSION["role"]);
+            header('Location: http://localhost/projet_Web');
+        }
 
-    //         if (trim($mdpBD) == trim(crypt($mdpU, $mdpBD))) {
-    //             // le mot de passe est celui de l'utilisateur dans la base de donnees
-    //             $_SESSION["mailU"] = $mailU;
-    //             $_SESSION["mdpU"] = $mdpBD;
-    //         }
-    //     }
+        static function isLoggedOn()
+        {
+            if (!isset($_SESSION)) {
+                session_start();
+            }
+            $ret = false;
 
-    //     function logout()
-    //     {
-    //         if (!isset($_SESSION)) {
-    //             session_start();
-    //         }
-    //         unset($_SESSION["mailU"]);
-    //         unset($_SESSION["mdpU"]);
-    //     }
+            if (isset($_SESSION["mail"])) {
+                $util = IdentiteDAO::getUtilisateurByMailU($_SESSION["mail"]);
+                if (
+                    $util["mail"] == $_SESSION["mail"] && $util["mdp"] == $_SESSION["mdp"]
+                ) {
+                    $ret = true;
+                }
+            }
+            return $ret;
+        }
 
-    //     function isLoggedOn()
-    //     {
-    //         if (!isset($_SESSION)) {
-    //             session_start();
-    //         }
-    //         $ret = false;
-
-    //         if (isset($_SESSION["mailU"])) {
-    //             $util = Identite::getMail(($_SESSION["mailU"]));
-    //             if (
-    //                 $util["mailU"] == $_SESSION["mailU"] && $util["mdpU"] == $_SESSION["mdpU"]
-    //             ) {
-    //                 $ret = true;
-    //             }
-    //         }
-    //         return $ret;
-    //     }
-    // function getMailULoggedOn()
-    // {
-    //     if (isLoggedOn()) {
-    //         $ret = $_SESSION["mailU"];
-    //     } else {
-    //         $ret = null;
-    //     }
-    //     return $ret;
-    // }
-    // }
+        function getMailULoggedOn()
+        {
+            if (Authentification::isLoggedOn()) {
+                $ret = $_SESSION["mail"];
+            } else {
+                $ret = null;
+            }
+            return $ret;
+        }
+    }
 }

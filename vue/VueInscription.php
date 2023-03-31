@@ -21,6 +21,7 @@
             <textarea type="text" name="description" placeholder="Description"></textarea>
             <input type="password" name="mdp" placeholder="Mot de passe" />
             <input type="submit" value="S'enregistrer" class="button-submit" />
+            <br /><a href="http://localhost/projet_Web">Retour</a>
 
         </form>
     </div>

@@ -9,15 +9,29 @@ function redirigeVers($action = "defaut")
 {
 
     $lesActions = [];
-    $lesActions["defaut"] = "TestC.php";
-    $lesActions["connexion"] = "Authentification.php";
+    //pour les tests :
+    // $lesActions["defaut"] = "TestC.php";
+    // Sinon :
+    $lesActions["defaut"] = "ChoixRole.php";
     $lesActions["deconnexion"] = "Deconnexion.php";
-    $lesActions["praticien"] = "Praticien.php";
-    $lesActions["accueil-praticien"] = "AccueilPraticien.php";
-    $lesActions["patient"] = "Patient.php";
+    $lesActions["notFound"] = "NotFound.php";
+    //Pour l'authentification :
+    $lesActions["connexion"] = "Authentification.php";
+    //*********************************************************Parcours praticien
     $lesActions["inscription"] = "Inscription.php";
+    $lesActions["connexion-praticien"] = "Authentification.php";
+    $lesActions["rdv-praticien"] = "Rdv.php";
+    $lesActions["profil-praticien"] = "ProfilPraticien.php";
+    $lesActions["creation-patient"] = "CreationPatient.php";
+    //*********************************************************Parcours Patient
+    $lesActions["connexion-patient"] = "Authentification.php";
+    $lesActions["rdv-patient"] = "Rdv.php";
+
+
+
+    //Pour les tests
     $lesActions["accueil"] = "TestC.php";
-    $lesActions["fiche-patient"] = "FichePatient.php";
+
 
     $controler_id = $lesActions[$action];
 
