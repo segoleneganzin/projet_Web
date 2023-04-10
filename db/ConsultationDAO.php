@@ -20,12 +20,10 @@ namespace DAO\Consultation {
             $sql = "INSERT INTO $this->table (type, duree, tarif, id_rdv) 
             VALUES (:type, :duree, :tarif, :id_rdv)";
             $stmt = Connexion::getInstance()->prepare($sql);
-            $id = $objet->getId();
             $type = $objet->getType();
             $duree = $objet->getDuree();
             $tarif = $objet->getTarif();
-            $id_rdv = $objet->getIdRdv();
-            $stmt->bindParam(':id', $id);
+            $id_rdv = $objet->getRdv();
             $stmt->bindParam(':type', $type);
             $stmt->bindParam(':duree', $duree);
             $stmt->bindParam(':tarif', $tarif);
@@ -49,7 +47,7 @@ namespace DAO\Consultation {
             $id_rdv = $row["id_rdv"];
             $daoRdv = new \DAO\Rdv\RdvDAO();
             $rdv = $daoRdv->read($id_rdv);
-            $rep = new \Promed\Consulation\Consulation($type, $duree, $tarif, $rdv);
+            $rep = new \Promed\Consultation\Consultation($type, $duree, $tarif, $rdv);
             $rep->setId($id_consultation);
             return $rep;
         }
@@ -62,7 +60,7 @@ namespace DAO\Consultation {
             $type = $objet->getType();
             $duree = $objet->getDuree();
             $tarif = $objet->getTarif();
-            $id_rdv = $objet->getIdRdv();
+            $id_rdv = $objet->getRdv()->getId();
             $stmt->bindParam(':id', $id);
             $stmt->bindParam(':type', $type);
             $stmt->bindParam(':duree', $duree);

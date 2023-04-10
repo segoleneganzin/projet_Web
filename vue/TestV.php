@@ -1,14 +1,28 @@
 <div class="container">
     <?php
 
+    use \Promed\Identite\Identite;
+    use \DAO\Identite\IdentiteDAO;
+
     // Prog de test des DAO
 
+    //test pour l'authentification
+    // $mail = "mail@test.com";
+    // $test = \DAO\Identite\IdentiteDAO::getUtilisateurByMailU($mail);
+    // print_r($test);
+
     //*****************************************IDENTITE 
+
+
     echo "getIdentites() : " . \DAO\Identite\IdentiteDAO::getIdentites();
     echo "<hr/>";
     $daoIdentite = new \DAO\Identite\IdentiteDAO();
-    //create d'une identite
-    //TODO
+    //!create d'une identite
+    $mdp_brut = "toto";
+    $hash = password_hash($mdp_brut, PASSWORD_DEFAULT);
+    $obj = new Identite("toto", "bob", 1, "mail@test.com", $hash, "test", 1);
+    echo "Objet crée, refresh pour le voir apparaitre dans getIdentites : " . $obj;
+    // $createIdentite = $daoIdentite->create($obj);
     //read d'une identite
     $readIdentite = $daoIdentite->read(1);
     //update d'une identite
@@ -78,7 +92,7 @@
     echo "<hr/>";
 
     //*****************************************PATIENT
-    echo "getAdresses() : " . \DAO\Patient\PatientDAO::getPatients();
+    echo "getPatients() : " . \DAO\Patient\PatientDAO::getPatients();
     echo "<hr/>";
     $daoPatient = new \DAO\Patient\PatientDAO();
     //create d'un patient

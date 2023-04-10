@@ -1,42 +1,42 @@
 <?php
+require_once RACINE . "/metier/Identite.php";
+require_once RACINE . "/metier/Authentification.php";
+require_once RACINE . "/db/Connexion.php";
+require_once RACINE . "/db/DAO.php";
+require_once RACINE . "/db/IdentiteDAO.php";
 
 /**
- *	Controleur secondaire : connexion 
+ *	Controleur secondaire : authentification 
  */
 
 if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
-    // Un MVC utilise uniquement ses requêtes depuis le contrôleur principal : index.php
     die('Erreur : ' . basename(__FILE__));
 }
 
-// require_once "../metier/Authentification.php";
-
-// creation du menu burger
-// $menuBurger = array();
-// $menuBurger[] = ["url" => "./?action=connexion", "label" => "Connexion"];
-// $menuBurger[] = ["url" => "./?action=inscription", "label" => "Inscription"];
-
 // recuperation des donnees GET, POST, et SESSION
-if (isset($_POST["mailU"]) && isset($_POST["mdpU"])) {
-    $mailU = $_POST["mailU"];
-    $mdpU = $_POST["mdpU"];
+if (isset($_POST["mail"]) && isset($_POST["mdp"])) {
+    $mail = $_POST["mail"];
+    $mdp = $_POST["mdp"];
+    // connexion
+    \Promed\Authentification\Authentification::login($mail, $mdp);
 } else {
-    $mailU = null;
-    $mdpU = null;
+    $mail = null;
+    $mdp = null;
 }
 
-// appel des fonctions permettant de recuperer les donnees utiles a l'affichage 
-
-
-// traitement si necessaire des donnees recuperees
-// login($mailU, $mdpU);
-
-// if (isLoggedOn()) { // si l'utilisateur est connecté on redirige vers le controleur monProfil
-//     include RACINE . "/controleur/monProfil.php";
-// } else { // l'utilisateur n'est pas connecté, on affiche le formulaire de connexion
-//     // appel du script de vue 
-$titre = "authentification";
-include RACINE . "/vue/Entete.html.php";
-include RACINE . "/vue/VueAuthentification.php";
-include RACINE . "/vue/Pied.html.php";
-// }
+if (\Promed\Authentification\Authentification::isLoggedOn()) { // si l'utilisateur est connecte on redirige vers le controleur praticien
+    //if role = praticien :
+    if (isset($_SESSION["role"])) {
+        $role = $_SESSION["role"];
+        if ($role == "praticien") {
+            header("Location: http://localhost/projet_Web/?action=rdv-praticien");
+        } else {
+            header("Location: http://localhost/projet_Web/?action=rdv-patient");
+        }
+    }
+} else { // l'utilisateur n'est pas connecté, on affiche le formulaire de connexion
+    $titre = "Authentification";
+    include RACINE . "/vue/Head.html.php";
+    include RACINE . "/vue/VueAuthentification.php";
+    include RACINE . "/vue/Pied.html.php";
+}

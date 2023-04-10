@@ -1,24 +1,18 @@
-<div class="container">
-    <div class="form">
-        <h1>Nouvelle fiche patient</h1>
-        <form class="form--input-container" action="./?action=inscription" method="POST">
-            <h2>Identité</h2>
-            <input type="text" name="nom" placeholder="Nom" />
-            <input type="text" name="prenom" placeholder="Prénom" />
-            <label for="date_naissance">Date de naissance</label>
-            <input type="date" name="date_naissance" placeholder="Date de naissance" />
-            <!-- varchar pour ne pas que le 0 disparaisse -->
-            <input type="text" name="tel" placeholder="Numéro de téléphone" />
-            <input type="email" name="email" placeholder="Email" />
-            <h2>Adresse</h2>
-            <!-- Le numero de rue est en varchar car il peut y avoir des bis/ter -->
-            <input type="text" name="num" placeholder="Numéro de rue" />
-            <input type="text" name="rue" placeholder="Nom de rue" />
-            <input type="number" name="cp" placeholder="Code postal" />
-            <input type="text" name="ville" placeholder="Ville" />
+<div class="container" id="fiche_patient">
+    <label>Nom:</label>
+    <?php echo $fiche->getNom(); ?>
+    <label>Prénom:</label>
+    <?php echo $fiche->getPrenom(); ?>
+    <label>Adresse:</label>
+    <?php echo $adr; ?>
+    <label>Téléphone:</label>
+    <?php echo $fiche->getTel(); ?>
+    <label>Mail:</label>
+    <?php echo $fiche->getMail(); ?>
 
-            <input type="submit" value="Ajouter patient" class="button-submit" />
-
-        </form>
-    </div>
+    <form class="form--input-container" action="" method="POST">
+        <label for="prise_rdv">Prendre un rendez-vous</label>
+        <input type="date" name="prise_rdv" placeholder="Date de Rendez-vous" />
+        <input type="submit" value="Prendre Rendez-Vous" name="submit" />
+    </form>
 </div>

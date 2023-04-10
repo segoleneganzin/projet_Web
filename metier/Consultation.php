@@ -1,22 +1,22 @@
 <?php
 
-namespace Promed\Consulation {
+namespace Promed\Consultation {
 
-    class Consulation
+    class Consultation
     {
 
         private $idConsultation = 0;
         private $type = "";
         private $duree = "";
         private $tarif = 0;
-        private $idRdv = 0;
+        private $rdv;
 
-        function __construct($type, $duree, $tarif, $idRdv)
+        function __construct($type, $duree, $tarif, $rdv)
         {
             $this->type = $type;
             $this->duree = $duree;
             $this->tarif = $tarif;
-            $this->idRdv = $idRdv;
+            $this->rdv = $rdv;
         }
 
         public function getId()
@@ -35,9 +35,9 @@ namespace Promed\Consulation {
         {
             return $this->tarif;
         }
-        public function getIdRdv()
+        public function getRdv()
         {
-            return $this->idRdv;
+            return $this->rdv;
         }
 
         public function setId($idConsultation)
@@ -60,16 +60,16 @@ namespace Promed\Consulation {
             $this->tarif = $tarif;
             return $this;
         }
-        public function setIdRdv($idRdv)
+        public function setRdv($rdv)
         {
-            $this->idRdv = $idRdv;
+            $this->rdv = $rdv;
             return $this;
         }
 
 
         function __toString()
         {
-            $rep = "<div class=\"infosIdentite\">id : [$this->idConsultation] type : [$this->type] duree : [$this->duree] tarif : [$this->tarif] idRdv : [$this->idRdv]";
+            $rep = "<div class=\"infosIdentite\">id : [$this->idConsultation] type : [$this->type] duree : [$this->duree] tarif : [$this->tarif] idRdv : [$this->rdv]";
             return $rep;
         }
     }

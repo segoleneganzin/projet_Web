@@ -18,11 +18,9 @@ namespace DAO\Rdv {
             $sql = "INSERT INTO $this->table (heure_debut, id_praticien, id_patient) 
             VALUES (:heure_debut, :id_praticien, :id_patient)";
             $stmt = Connexion::getInstance()->prepare($sql);
-            $id = $objet->getId();
             $heure_debut = $objet->getHDebut();
             $id_praticien = $objet->getPrat();
             $id_patient = $objet->getPat();
-            $stmt->bindParam(':id', $id);
             $stmt->bindParam(':heure_debut', $heure_debut);
             $stmt->bindParam(':id_praticien', $id_praticien);
             $stmt->bindParam(':id_patient', $id_patient);
@@ -43,10 +41,10 @@ namespace DAO\Rdv {
             $id_praticien  = $row["id_praticien"];
             $id_patient  = $row["id_patient"];
             $daoPrat = new \DAO\Praticien\PraticienDAO(); // A voir la nomen d'Ana
-            $idPrat = $daoPrat->read($id_praticien);
+            $praticien = $daoPrat->read($id_praticien);
             $daoPat = new \DAO\Patient\PatientDAO(); // A voir la nomen d'Ana
-            $idPat = $daoPat->read($id_patient);
-            $rep = new \Promed\Rdv\Rdv($heure_debut, $idPrat, $idPat);
+            $patient = $daoPat->read($id_patient);
+            $rep = new \Promed\Rdv\Rdv($heure_debut, $praticien, $patient);
             $rep->setId($id_rdv);
             return $rep;
         }
@@ -57,8 +55,8 @@ namespace DAO\Rdv {
             $stmt = Connexion::getInstance()->prepare($sql);
             $id = $objet->getId();
             $heure_debut = $objet->getHDebut();
-            $id_praticien = $objet->getPrat();
-            $id_patient = $objet->getPat();
+            $id_praticien = $objet->getPrat()->getId();
+            $id_patient = $objet->getPat()->getId();
             $stmt->bindParam(':id', $id);
             $stmt->bindParam(':heure_debut', $heure_debut);
             $stmt->bindParam(':id_praticien', $id_praticien);

@@ -13,24 +13,19 @@ require RACINE . "/db/AdresseDAO.php";
 require RACINE . "/metier/Adresse.php";
 
 $identiteDao = new DAO\Identite\IdentiteDAO();
-// Récupération de l'identifiant du patient depuis l'URL
-if (isset($_GET['id'])) {
-    $patient_id = $_GET['id'];
-} else {
-    // Si l'identifiant n'est pas présent dans l'URL, on redirige vers la page de recherche
-    header("Location: ?action=recherche");
-    exit;
-}
 
-$fiche = $identiteDao->read($patient_id);
-$adr = $fiche->getAdresse()->getNum() . " " . $fiche->getAdresse()->getRue() . " " .
-    $fiche->getAdresse()->getCp() . " " . $fiche->getAdresse()->getVille();
+$url = 'fiche-patient';
+
+$identites = $identiteDao->readAll();
 
 if (isset($_POST['submit'])) {
-    echo "rdv posé";
+    $selectedId = $_POST['identite_id'];
+    header("Location: ?action=fiche-patient&id=$selectedId");
+    // empêche l'exécution d'autres instructions pour éviter erreur
+    exit();
 }
 
-$titre = "Fiche Patient";
+$titre = "Rechercher";
 include RACINE . "/vue/Entete.html.php";
-include RACINE . "/vue/VueFichePatient.php";
+include RACINE . "/vue/VueRecherche.php";
 include RACINE . "/vue/Pied.html.php";
