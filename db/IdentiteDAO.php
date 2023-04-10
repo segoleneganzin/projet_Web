@@ -112,15 +112,10 @@ namespace DAO\Identite {
             }
             return $rep . "</table>";
         }
+
         static function getUtilisateurByMailU($mail)
         {
             try {
-                // $sql = "SELECT * FROM identite WHERE mail=:mail";
-                // $stmt = Connexion::getInstance()->prepare($sql);
-                // $stmt->bindValue(':mail', $mail, \PDO::PARAM_STR);
-                // $stmt->execute();
-                // $resultat = $stmt->fetch(\PDO::FETCH_ASSOC);
-                // $resultat = Connexion::getInstance()->query($sql);
                 $cnx = Connexion::getInstance();
                 $req = $cnx->prepare("SELECT * FROM identite WHERE mail=:mail");
                 $req->bindValue(':mail', $mail, \PDO::PARAM_STR);

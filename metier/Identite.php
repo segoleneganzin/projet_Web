@@ -12,7 +12,7 @@ namespace Promed\Identite {
         private $mail = "";
         private $mdp = "";
         private $role = "";
-        private $adresse = 0;
+        private $adresse;
 
         function __construct($nom, $prenom, $tel, $mail, $mdp, $role, $adresse)
         {

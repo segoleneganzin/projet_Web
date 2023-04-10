@@ -2,8 +2,6 @@
 
 namespace DAO\Patient {
 
-    // require("DAO.php");
-
     use DB\Connexion\Connexion;
     use Promed\Patient\Patient;
 
@@ -31,12 +29,10 @@ namespace DAO\Patient {
 
         public function read($id)
         {
-            // On utilise le prepared statemet qui simplifie les typages
             $sql = "SELECT * FROM $this->table WHERE $this->key=:id";
             $stmt = Connexion::getInstance()->prepare($sql);
             $stmt->bindParam(':id', $id);
             $stmt->execute();
-
             $row = $stmt->fetch();
             $id_patient = $row["id_patient"];
             $date_de_naissance = $row["date_de_naissance"];
@@ -54,7 +50,7 @@ namespace DAO\Patient {
             $stmt = Connexion::getInstance()->prepare($sql);
             $id = $objet->getId();
             $date_de_naissance = $objet->getDateDeNaissance();
-            $id_identite = $objet->getIdentite();
+            $id_identite = $objet->getIdentite()->getId();
             $stmt->bindParam(':id', $id);
             $stmt->bindParam(':date_de_naissance', $date_de_naissance);
             $stmt->bindParam(':id_identite', $id_identite);

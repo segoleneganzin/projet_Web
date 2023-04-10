@@ -58,7 +58,7 @@ namespace DAO\Praticien {
             $id = $objet->getId();
             $specialiste = $objet->getSpecialiste();
             $description = $objet->getDescription();
-            $id_identite = $objet->getIdentite();
+            $id_identite = $objet->getIdentite()->getId();
             $stmt->bindParam(':id', $id);
             $stmt->bindParam(':specialiste', $specialiste);
             $stmt->bindParam(':description', $description);
