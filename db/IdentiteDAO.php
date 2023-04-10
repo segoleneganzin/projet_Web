@@ -113,6 +113,32 @@ namespace DAO\Identite {
             return $rep . "</table>";
         }
 
+        public function readAll()
+        {
+            $sql = "SELECT * FROM $this->table";
+            $stmt = Connexion::getInstance()->prepare($sql);
+            $stmt->execute();
+
+            $resultat = array();
+            while ($row = $stmt->fetch()) {
+                $id_identite = $row["id_identite"];
+                $nom = $row["nom"];
+                $prenom = $row["prenom"];
+                $tel = $row["tel"];
+                $mail = $row["mail"];
+                $mdp = $row["mdp"]; // à simplifier en fonction des besoins !!
+                $role = $row["role"];
+                $id_adresse = $row["id_adresse"];
+                $daoAdresse = new \DAO\Adresse\AdresseDAO();
+                $adr = $daoAdresse->read($id_adresse);
+                $rep = new \Promed\Identite\Identite($nom, $prenom, $tel, $mail, $mdp, $role, $adr);
+                $rep->setId($id_identite);
+                $resultat[] = $rep;
+            }
+
+            return $resultat;
+        }
+
         static function getUtilisateurByMailU($mail)
         {
             try {
