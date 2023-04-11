@@ -29,9 +29,9 @@ if (\Promed\Authentification\Authentification::isLoggedOn()) { // si l'utilisate
     if (isset($_SESSION["role"])) {
         $role = $_SESSION["role"];
         if ($role == "praticien") {
-            header("Location: http://localhost/projet_Web/?action=rdv-praticien");
+            header("Location: ?action=rdv-praticien");
         } else {
-            header("Location: http://localhost/projet_Web/?action=rdv-patient");
+            header("Location: ?action=rdv-patient");
         }
     }
 } else { // l'utilisateur n'est pas connecté, on affiche le formulaire de connexion

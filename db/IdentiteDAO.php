@@ -113,9 +113,9 @@ namespace DAO\Identite {
             return $rep . "</table>";
         }
 
-        public function readAll()
+        public function readAllPatients()
         {
-            $sql = "SELECT * FROM $this->table";
+            $sql = "SELECT * FROM $this->table WHERE role = 'patient' ";
             $stmt = Connexion::getInstance()->prepare($sql);
             $stmt->execute();
 

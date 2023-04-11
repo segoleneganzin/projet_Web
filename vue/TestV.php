@@ -1,135 +1,194 @@
+<!-- Prog de test des DAO -->
 <div class="container">
     <?php
 
-    use \Promed\Identite\Identite;
-    use \DAO\Identite\IdentiteDAO;
-
-    // Prog de test des DAO
-
-    //test pour l'authentification
-    // $mail = "mail@test.com";
-    // $test = \DAO\Identite\IdentiteDAO::getUtilisateurByMailU($mail);
-    // print_r($test);
+    use Promed\Identite\Identite;
+    use Promed\Adresse\Adresse;
+    use Promed\Consultation\Consultation;
+    use Promed\Rdv\Rdv;
+    use Promed\Patient\Patient;
+    use Promed\Praticien\Praticien;
 
     //*****************************************IDENTITE 
 
-
-    echo "getIdentites() : " . \DAO\Identite\IdentiteDAO::getIdentites();
-    echo "<hr/>";
     $daoIdentite = new \DAO\Identite\IdentiteDAO();
+
     //!create d'une identite
-    $mdp_brut = "toto";
-    $hash = password_hash($mdp_brut, PASSWORD_DEFAULT);
-    $obj = new Identite("toto", "bob", 1, "mail@test.com", $hash, "test", 1);
-    echo "Objet crée, refresh pour le voir apparaitre dans getIdentites : " . $obj;
+    // $mdp_brut = "toto";
+    // $hash = password_hash($mdp_brut, PASSWORD_DEFAULT);
+    // $obj = new Identite("toto", "bob", 1, "mail@test.com", $hash, "test", 1);
+    // echo "Objet crée : " . $obj;
     // $createIdentite = $daoIdentite->create($obj);
-    //read d'une identite
-    $readIdentite = $daoIdentite->read(1);
-    //update d'une identite
-    //TODO
-    //delete d'une identite
-    //TODO
 
-    echo "Read de l'identite avec l'id (1) : $readIdentite";
+    //!read d'une identite
+    // $readIdentite = $daoIdentite->read(1);
+    // echo "Read de l'identite avec l'id (1) : $readIdentite";
     // echo "Arborescence de l'identite avec l'id (1) : ";
-    // var_dump($identite);
+    // var_dump($readIdentite);
 
-    echo "<hr/>";
+    //!update d'une identite
+    // $readIdentite = $daoIdentite->read(1);
+    // $readIdentite->setNom("Test");
+    // $daoIdentite->update($readIdentite);
+
+    //!delete d'une identite
+    // $readIdentite = $daoIdentite->read(4);
+    // $daoIdentite->delete($readIdentite);
+
+    // echo "<hr/>";
+
+    // echo "getIdentites() : " . \DAO\Identite\IdentiteDAO::getIdentites();
+
+    // echo "<hr/>";
 
     //*****************************************ADRESSE
-    echo "getAdresses() : " . \DAO\Adresse\AdresseDAO::getAdresses();
-    echo "<hr/>";
+
     $daoAdr = new \DAO\Adresse\AdresseDAO();
-    //create d'une adresse
-    //TODO
-    //read d'une adresse
-    $readAdr = $daoAdr->read(1);
-    //update d'une adresse
-    //TODO
-    //delete d'une adresse
-    //TODO
 
-    echo "Read de l'adresse avec l'id (1) : $readAdr";
+    //!create d'une adresse
+    // $obj = new Adresse(2, "test", 1, "test");
+    // echo "Objet crée : " . $obj;
+    // $daoAdr->create($obj);
 
-    echo "<hr/>";
+    //!read d'une adresse
+    // $readAdr = $daoAdr->read(2);
+    // echo "Read de l'adresse avec l'id (2) : $readAdr";
+
+    //!update d'une adresse
+    // $readAdresse = $daoAdr->read(4);
+    // $readAdresse->setRue("le quatrième");
+    // $daoAdr->update($readAdresse);
+
+    //!delete d'une adresse
+    // $readAdresse = $daoAdr->read(6);
+    // $daoAdr->delete($readAdresse);
+
+    // echo "<hr/>";
+
+    // echo "getAdresses() : " . \DAO\Adresse\AdresseDAO::getAdresses();
+
+    // echo "<hr/>";
 
     //*****************************************CONSULTATION
-    echo "getConsultations() : " . \DAO\Consultation\ConsultationDAO::getConsultations();
-    echo "<hr/>";
+
     $daoConsult = new \DAO\Consultation\ConsultationDAO();
-    //create d'une consultation
-    //TODO
-    //read d'une consultation
-    $readConsult = $daoConsult->read(1);
-    //update d'une consultation
-    //TODO
-    //delete d'une consultation
-    //TODO
 
-    echo "Read de la consultation avec l'id (1) : $readConsult";
+    //!create d'une consultation
+    // $obj = new Consultation("Bilan", "1 heure", 15.99, 1);
+    // echo "Objet crée : " . $obj;
+    // $daoConsult->create($obj);
+
+    //!read d'une consultation
+    // $readConsult = $daoConsult->read(1);
+    // echo "Read de la consultation avec l'id (1) : $readConsult";
     // echo "Arborescence de la consultation avec l'id (1) : ";
-    // var_dump($consult);
+    // var_dump($readConsult);
 
-    echo "<hr/>";
+    //!update d'une consultation
+    // $readConsult = $daoConsult->read(2);
+    // $readConsult->setType("blablou");
+    // $daoConsult->update($readConsult);
+
+    //!delete d'une consultation
+    // $readConsult = $daoConsult->read(2);
+    // $daoConsult->delete($readConsult);
+
+    // echo "<hr/>";
+
+    // echo "getConsultations() : " . \DAO\Consultation\ConsultationDAO::getConsultations();
+
+    // echo "<hr/>";
 
     //*****************************************RDV
-    echo "getRdvs() : " . \DAO\Rdv\RdvDAO::getRdvs();
-    echo "<hr/>";
-    $daoRdv = new \DAO\Rdv\RdvDAO();
-    //create d'un rdv
-    //TODO
-    //read d'un rdv
-    $rdv = $daoRdv->read(1);
-    //update d'un rdv
-    //TODO
-    //delete d'un rdv
-    //TODO
 
-    echo "Read du rdv avec l'id (1) : $rdv";
+    $daoRdv = new \DAO\Rdv\RdvDAO();
+
+    //!create d'un rdv
+    // $obj = new Rdv("13H00", 1, 1);
+    // echo "Objet crée : " . $obj;
+    // $daoRdv->create($obj);
+
+    //!read d'un rdv
+    // $rdv = $daoRdv->read(1);
+    // echo "Read du rdv avec l'id (1) : $rdv";
     // echo "Arborescence du rdv avec l'id (1) : ";
     // var_dump($rdv);
 
-    echo "<hr/>";
+    //!update d'un rdv
+    // $readRdv = $daoRdv->read(2);
+    // $readRdv->setHDebut("12h00");
+    // $daoRdv->update($readRdv);
+
+    //!delete d'un rdv
+    // $readRdv = $daoRdv->read(2);
+    // $daoRdv->delete($readRdv);
+
+    // echo "<hr/>";
+
+    // echo "getRdvs() : " . \DAO\Rdv\RdvDAO::getRdvs();
+
+    // echo "<hr/>";
 
     //*****************************************PATIENT
-    echo "getPatients() : " . \DAO\Patient\PatientDAO::getPatients();
-    echo "<hr/>";
+
     $daoPatient = new \DAO\Patient\PatientDAO();
-    //create d'un patient
-    //TODO
-    //read d'un patient
-    $patient = $daoPatient->read(1);
-    //update d'un patient
-    //TODO
-    //delete d'un patient
-    //TODO
 
-    echo "Read du patient avec l'id (1) : $patient";
+    //!create d'un patient
+    // $obj = new Patient("1999-09-20", 1);
+    // echo "Objet crée : " . $obj;
+    // $daoPatient->create($obj);
+
+    //!read d'un patient
+    // $readPatient = $daoPatient->read(1);
+    // echo "Read du patient avec l'id (1) : $readPatient";
     // echo "Arborescence du patient avec l'id (1) : ";
-    // var_dump($patient);
+    // var_dump($readPatient);
+
+    //!update d'un patient
+    // $readPatient = $daoPatient->read(2);
+    // $readPatient->setDateDeNaissance("2023-09-20");
+    // $daoPatient->update($readPatient);
+
+    //!delete d'un patient
+    // $readPatient = $daoPatient->read(2);
+    // $daoPatient->delete($readPatient);
 
 
-    echo "<hr/>";
+    // echo "<hr/>";
+
+    // echo "getPatients : " . \DAO\Patient\PatientDAO::getPatients();
+
+    // echo "<hr/>";
 
     //*****************************************PRATICIEN
-    echo "getPraticiens() : " . \DAO\Praticien\PraticienDAO::getPraticiens();
-    echo "<hr/>";
+
     $daoPraticien = new \DAO\Praticien\PraticienDAO();
-    //create d'un praticien
-    //TODO
-    //read d'un praticien
-    $praticien = $daoPraticien->read(1);
-    //update d'un praticien
-    //TODO
-    //delete d'un praticien
-    //TODO
 
-    echo "Read du praticien avec l'id (1) : $praticien";
+    //!create d'un praticien
+    // $obj = new Praticien("Ophtalmo", "Description du praticien", 1);
+    // echo "Objet crée : " . $obj;
+    // $daoPraticien->create($obj);
+
+    //!read d'un praticien
+    // $readPraticien = $daoPraticien->read(1);
+    // echo "Read du praticien avec l'id (1) : $readPraticien";
     // echo "Arborescence du praticien avec l'id (1) : ";
-    // var_dump($praticien);
+    // var_dump($readPraticien);
 
+    //!update d'un praticien
+    // $readPraticien = $daoPraticien->read(2);
+    // $readPraticien->setSpecialiste("Chirurgien");
+    // $daoPraticien->update($readPraticien);
 
-    echo "<hr/>";
+    //!delete d'un praticien
+    // $readPraticien = $daoPraticien->read(2);
+    // $daoPraticien->delete($readPraticien);
+
+    // echo "<hr/>";
+
+    // echo "getPraticiens() : " . \DAO\Praticien\PraticienDAO::getPraticiens();
+
+    // echo "<hr/>";
 
     ?>
 </div>
