@@ -112,15 +112,36 @@ namespace DAO\Identite {
             }
             return $rep . "</table>";
         }
+
+        public function readAllPatients()
+        {
+            $sql = "SELECT * FROM $this->table WHERE role = 'patient' ";
+            $stmt = Connexion::getInstance()->prepare($sql);
+            $stmt->execute();
+
+            $resultat = array();
+            while ($row = $stmt->fetch()) {
+                $id_identite = $row["id_identite"];
+                $nom = $row["nom"];
+                $prenom = $row["prenom"];
+                $tel = $row["tel"];
+                $mail = $row["mail"];
+                $mdp = $row["mdp"]; // à simplifier en fonction des besoins !!
+                $role = $row["role"];
+                $id_adresse = $row["id_adresse"];
+                $daoAdresse = new \DAO\Adresse\AdresseDAO();
+                $adr = $daoAdresse->read($id_adresse);
+                $rep = new \Promed\Identite\Identite($nom, $prenom, $tel, $mail, $mdp, $role, $adr);
+                $rep->setId($id_identite);
+                $resultat[] = $rep;
+            }
+
+            return $resultat;
+        }
+
         static function getUtilisateurByMailU($mail)
         {
             try {
-                // $sql = "SELECT * FROM identite WHERE mail=:mail";
-                // $stmt = Connexion::getInstance()->prepare($sql);
-                // $stmt->bindValue(':mail', $mail, \PDO::PARAM_STR);
-                // $stmt->execute();
-                // $resultat = $stmt->fetch(\PDO::FETCH_ASSOC);
-                // $resultat = Connexion::getInstance()->query($sql);
                 $cnx = Connexion::getInstance();
                 $req = $cnx->prepare("SELECT * FROM identite WHERE mail=:mail");
                 $req->bindValue(':mail', $mail, \PDO::PARAM_STR);

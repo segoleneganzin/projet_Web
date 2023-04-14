@@ -6,32 +6,32 @@ namespace Promed\Rdv {
     {
 
         private $id_rdv  = 0;
-        private $heure_debut = "";
-        private $id_praticien  = "";
-        private $id_patient  = 0;
+        private $date_rdv = "";
+        private $praticien;
+        private $patient;
 
-        function __construct($heure_debut, $id_praticien, $id_patient)
+        function __construct($date_rdv, $praticien, $patient)
         {
-            $this->heure_debut = $heure_debut;
-            $this->id_praticien = $id_praticien;
-            $this->id_patient = $id_patient;
+            $this->date_rdv = $date_rdv;
+            $this->praticien = $praticien;
+            $this->patient = $patient;
         }
 
         public function getId()
         {
             return $this->id_rdv;
         }
-        public function getHDebut()
+        public function getDateRdv()
         {
-            return $this->heure_debut;
+            return $this->date_rdv;
         }
         public function getPrat()
         {
-            return $this->id_praticien;
+            return $this->praticien;
         }
         public function getPat()
         {
-            return $this->id_patient;
+            return $this->patient;
         }
 
         public function setId($id_rdv)
@@ -39,26 +39,26 @@ namespace Promed\Rdv {
             $this->id_rdv = $id_rdv;
             return $this;
         }
-        public function setHDebut($heure_debut)
+        public function setDateRdv($heure_debut)
         {
-            $this->heure_debut = $heure_debut;
+            $this->date_rdv = $heure_debut;
             return $this;
         }
-        public function setPrat($id_praticien)
+        public function setPrat($praticien)
         {
-            $this->id_praticien = $id_praticien;
+            $this->praticien = $praticien;
             return $this;
         }
-        public function setPat($id_patient)
+        public function setPat($patient)
         {
-            $this->id_patient = $id_patient;
+            $this->patient = $patient;
             return $this;
         }
 
 
         function __toString()
         {
-            $rep = "<div class=\"infosIdentite\">id : [$this->id_rdv] heure_debut : [$this->heure_debut] id_praticien : [$this->id_praticien] id_patient : [$this->id_patient]";
+            $rep = "<div class=\"infosIdentite\">id : [$this->id_rdv] date_rdv : [$this->date_rdv] id_praticien : [$this->praticien] id_patient : [$this->patient]";
             return $rep;
         }
     }

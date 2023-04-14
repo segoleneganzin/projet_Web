@@ -23,6 +23,8 @@ function redirigeVers($action = "defaut")
     $lesActions["rdv-praticien"] = "Rdv.php";
     $lesActions["profil-praticien"] = "ProfilPraticien.php";
     $lesActions["creation-patient"] = "CreationPatient.php";
+    $lesActions["recherche"] = "Recherche.php";
+    $lesActions["fiche-patient"] = "FichePatient.php";
     //*********************************************************Parcours Patient
     $lesActions["connexion-patient"] = "Authentification.php";
     $lesActions["rdv-patient"] = "Rdv.php";

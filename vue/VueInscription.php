@@ -11,8 +11,7 @@
             <input type="text" name="tel" placeholder="Numéro de téléphone" />
             <input type="email" name="email" placeholder="Email" />
             <h2>Adresse</h2>
-            <!-- Le numero de rue est en varchar car il peut y avoir des bis/ter -->
-            <input type="text" name="num" placeholder="Numéro de rue" />
+            <input type="number" name="num" placeholder="Numéro de rue" />
             <input type="text" name="rue" placeholder="Nom de rue" />
             <input type="number" name="cp" placeholder="Code postal" />
             <input type="text" name="ville" placeholder="Ville" />
