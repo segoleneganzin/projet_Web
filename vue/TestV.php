@@ -2,6 +2,7 @@
 <div class="container">
     <?php
 
+    use DAO\Rdv\RdvDAO;
     use Promed\Identite\Identite;
     use Promed\Adresse\Adresse;
     use Promed\Consultation\Consultation;
@@ -14,9 +15,11 @@
     $daoIdentite = new \DAO\Identite\IdentiteDAO();
 
     //!create d'une identite
+    // $role = "praticien";
+    // $id_adresse = 2;
     // $mdp_brut = "toto";
     // $hash = password_hash($mdp_brut, PASSWORD_DEFAULT);
-    // $obj = new Identite("toto", "bob", 1, "mail@test.com", $hash, "test", 1);
+    // $obj = new Identite("toto", "bob", "0123456789", "test@test.com", $hash, $role, $id_adresse);
     // echo "Objet crée : " . $obj;
     // $createIdentite = $daoIdentite->create($obj);
 
@@ -46,7 +49,7 @@
     $daoAdr = new \DAO\Adresse\AdresseDAO();
 
     //!create d'une adresse
-    // $obj = new Adresse(2, "test", 1, "test");
+    // $obj = new Adresse(2, "test", 56000, "Lorient");
     // echo "Objet crée : " . $obj;
     // $daoAdr->create($obj);
 
@@ -74,7 +77,7 @@
     $daoConsult = new \DAO\Consultation\ConsultationDAO();
 
     //!create d'une consultation
-    // $obj = new Consultation("Bilan", "1 heure", 15.99, 1);
+    // $obj = new Consultation("Bilan", "1 heure", 15.99);
     // echo "Objet crée : " . $obj;
     // $daoConsult->create($obj);
 
@@ -104,7 +107,7 @@
     $daoRdv = new \DAO\Rdv\RdvDAO();
 
     //!create d'un rdv
-    // $obj = new Rdv("13H00", 1, 1);
+    // $obj = new Rdv(date("Y-m-d H:i:s", strtotime("+ 2 hours")), 1, 1, 1);
     // echo "Objet crée : " . $obj;
     // $daoRdv->create($obj);
 
@@ -116,7 +119,7 @@
 
     //!update d'un rdv
     // $readRdv = $daoRdv->read(2);
-    // $readRdv->setHDebut("12h00");
+    // $readRdv->setDateRDV(date("Y-m-d H:i:s", strtotime("+ 2 hours")));
     // $daoRdv->update($readRdv);
 
     //!delete d'un rdv
@@ -165,7 +168,7 @@
     $daoPraticien = new \DAO\Praticien\PraticienDAO();
 
     //!create d'un praticien
-    // $obj = new Praticien("Ophtalmo", "Description du praticien", 1);
+    // $obj = new Praticien("Ophtalmo", "Description du praticien", 2);
     // echo "Objet crée : " . $obj;
     // $daoPraticien->create($obj);
 
@@ -189,6 +192,37 @@
     // echo "getPraticiens() : " . \DAO\Praticien\PraticienDAO::getPraticiens();
 
     // echo "<hr/>";
+
+    //*****************************************SCRIPT CREATION DATA BD
+    // $obj = new Adresse(2, "René Lesage", 56000, "Vannes");
+    // $daoAdr->create($obj);
+    // $obj = new Adresse(2, "Martin Luther King", 56100, "Lorient");
+    // $daoAdr->create($obj);
+    // $mdp_brut = "toto";
+    // $hash = password_hash($mdp_brut, PASSWORD_DEFAULT);
+    // $obj = new Identite("toto", "bob", "0612345678", "test@test.com", $hash, "patient", 1);
+    // $createIdentite = $daoIdentite->create($obj);
+    // $mdp_brut = "toto";
+    // $hash = password_hash($mdp_brut, PASSWORD_DEFAULT);
+    // $obj = new Identite("toto2", "bob2", "0612345678", "test2@test.com", $hash, "praticien", 2);
+    // $createIdentite = $daoIdentite->create($obj);
+    // $obj = new Patient("1999-09-20", 1);
+    // $daoPatient->create($obj);
+    // $obj = new Praticien("Ophtalmo", "Description du praticien", 2);
+    // $daoPraticien->create($obj);
+    // $obj = new Consultation("Premiere consultation", 45, 59.99);
+    // $daoConsult->create($obj);
+    // $obj = new Consultation("Suivi", 30, 50);
+    // $daoConsult->create($obj);
+    // $obj = new Consultation("Bilan", 15, 30);
+    // $daoConsult->create($obj);
+    // $obj = new Rdv(date("Y-m-d H:i:s", strtotime("+ 2 hours")), 1, 1, 1);
+    // $daoRdv->create($obj);
+    // $obj = new Rdv(date("Y-m-d H:i:s", strtotime("+ 1 day")), 1, 1, 2);
+    // $daoRdv->create($obj);
+    // $obj = new Rdv(date("Y-m-d H:i:s", strtotime("+ 2 day")), 1, 1, 3);
+    // $daoRdv->create($obj);
+    // echo "La data a été créée dans la BD 👍";
 
     ?>
 </div>

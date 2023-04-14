@@ -17,17 +17,15 @@ namespace DAO\Consultation {
 
         public function create($objet)
         {
-            $sql = "INSERT INTO $this->table (type, duree, tarif, id_rdv) 
-            VALUES (:type, :duree, :tarif, :id_rdv)";
+            $sql = "INSERT INTO $this->table (type, duree, tarif) 
+            VALUES (:type, :duree, :tarif)";
             $stmt = Connexion::getInstance()->prepare($sql);
             $type = $objet->getType();
             $duree = $objet->getDuree();
             $tarif = $objet->getTarif();
-            $id_rdv = $objet->getRdv();
             $stmt->bindParam(':type', $type);
             $stmt->bindParam(':duree', $duree);
             $stmt->bindParam(':tarif', $tarif);
-            $stmt->bindParam(':id_rdv', $id_rdv);
             $stmt->execute();
             $objet->setId(parent::getLastKey());
         }
@@ -44,28 +42,23 @@ namespace DAO\Consultation {
             $type = $row["type"];
             $duree = $row["duree"];
             $tarif = $row["tarif"];
-            $id_rdv = $row["id_rdv"];
-            $daoRdv = new \DAO\Rdv\RdvDAO();
-            $rdv = $daoRdv->read($id_rdv);
-            $rep = new \Promed\Consultation\Consultation($type, $duree, $tarif, $rdv);
+            $rep = new \Promed\Consultation\Consultation($type, $duree, $tarif);
             $rep->setId($id_consultation);
             return $rep;
         }
 
         public function update($objet)
         {
-            $sql = "UPDATE $this->table SET type = :type, duree = :duree, tarif = :tarif, id_rdv = :id_rdv  WHERE $this->key=:id";
+            $sql = "UPDATE $this->table SET type = :type, duree = :duree, tarif = :tarif WHERE $this->key=:id";
             $stmt = Connexion::getInstance()->prepare($sql);
             $id = $objet->getId();
             $type = $objet->getType();
             $duree = $objet->getDuree();
             $tarif = $objet->getTarif();
-            $id_rdv = $objet->getRdv()->getId();
             $stmt->bindParam(':id', $id);
             $stmt->bindParam(':type', $type);
             $stmt->bindParam(':duree', $duree);
             $stmt->bindParam(':tarif', $tarif);
-            $stmt->bindParam(':id_rdv', $id_rdv);
             $stmt->execute();
         }
 
@@ -88,8 +81,7 @@ namespace DAO\Consultation {
                 $rep .= "<tr><td>" . $row["id_consultation"];
                 $rep .= "</td><td>" . $row["type"];
                 $rep .= "</td><td>" . $row["duree"];
-                $rep .= "</td><td>" . $row["tarif"];
-                $rep .= "</td><td>" . $row["id_rdv"] . "</td></tr>";
+                $rep .= "</td><td>" . $row["tarif"] . "</td></tr>";
             }
             return $rep . "</table>";
         }

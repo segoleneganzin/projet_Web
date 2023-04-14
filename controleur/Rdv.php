@@ -6,12 +6,13 @@ require_once RACINE . "/db/Connexion.php";
 require_once RACINE . "/db/DAO.php";
 require_once RACINE . "/db/IdentiteDAO.php";
 
-include RACINE . "/vue/Entete.html.php";
 if (\Promed\Authentification\Authentification::isLoggedOn()) {
     $titre = "Mes rendez-vous";
     if (isset($_GET["action"]) && $_GET["action"] == "rdv-praticien") {
+        include RACINE . "/vue/Entete.html.php";
         include RACINE . "/vue/VueRdvPraticien.php";
     } else {
+        include RACINE . "/vue/Entete.html.php";
         include RACINE . "/vue/VueRdvPatient.php";
     }
 } else {
