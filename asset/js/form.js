@@ -9,8 +9,8 @@ $(function () {
       prenom: $("#prenom").val(),
       tel: $("#tel").val(),
       email: $("#email").val(),
-      num: $("#nom").val(),
-      rue: $("#prenom").val(),
+      num: $("#num").val(),
+      rue: $("#rue").val(),
       cp: $("#cp").val(),
       ville: $("#email").val(),
       specialite: $("#specialite").val(),
@@ -22,8 +22,8 @@ $(function () {
     let prenom = $("#prenom").val();
     let tel = $("#tel").val();
     let email = $("#email").val();
-    let num = $("#nom").val();
-    let rue = $("#prenom").val();
+    let num = $("#num").val();
+    let rue = $("#rue").val();
     let cp = $("#cp").val();
     let ville = $("#email").val();
     let specialite = $("#specialite").val();
@@ -68,7 +68,7 @@ $(function () {
           email != "" &&
           num != "" &&
           rue != "" &&
-          rue != "" &&
+          cp != "" &&
           ville != "" &&
           specialite != "" &&
           description != "" &&
