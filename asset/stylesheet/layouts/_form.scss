@@ -8,7 +8,7 @@
     flex-direction: column;
     input,
     textarea {
-      margin-top: 2%;
+      // margin-top: 2%;
       border-radius: 10px;
       padding: 2%;
       border: none;
@@ -30,5 +30,32 @@
   .button-submit {
     margin-top: 10%;
     font-weight: 600;
+  }
+  .error {
+    border: 2px solid red;
+  }
+  .ok {
+    background-color: white;
+    color: black;
+    border: none;
+  }
+  .success {
+    display: none;
+    background-color: #12cc1a;
+    border: #0fa015 1px solid;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 4px;
+  }
+  .form-status {
+    display: none;
+  }
+  .info {
+    font-size: 0.8em;
+    color: #ff6600;
+    letter-spacing: 2px;
+    padding-left: 5px;
   }
 }

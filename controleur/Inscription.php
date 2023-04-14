@@ -10,8 +10,6 @@ require_once RACINE . "/metier/Praticien.php";
 require_once RACINE . "/db/PraticienDAO.php";
 require_once RACINE . "/metier/Authentification.php";
 
-
-
 /**
  *	Controleur secondaire : inscription 
  */
@@ -35,15 +33,6 @@ if (isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["tel"]) && i
     $mdp = $_POST["mdp"];
     // inscription
     \Promed\Inscription\Inscription::inscriptionPraticien($nom, $prenom, $tel, $email, $num, $rue, $cp, $ville, $specialite, $description, $mdp);
-    // connexion
-    \Promed\Authentification\Authentification::login($emailId, $mdp);
-    $_SESSION["mail"] = $emailId;
-    $_SESSION["mdp"] = $mdp;
-    $_SESSION["role"] = "praticien";
-    header('Location: ?action=connexion');
-
-    //TODO redirection à l'inscription
-
 } else {
     $nom = null;
     $prenom = null;

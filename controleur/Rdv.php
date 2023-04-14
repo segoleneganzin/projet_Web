@@ -1,4 +1,4 @@
-<!-- TODO : gerer l'affichage des vues selon praticien (VueRdvPraticien) / patient (VueRdvPetient) -->
+<!-- TODO : gerer l'affichage des vues selon praticien (VueRdvPraticien) / patient (VueRdvPatient) -->
 <?php
 require_once RACINE . "/metier/Identite.php";
 require_once RACINE . "/metier/Authentification.php";
