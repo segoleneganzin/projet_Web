@@ -49,7 +49,8 @@ namespace DAO\Consultation {
 
         public function update($objet)
         {
-            $sql = "UPDATE $this->table SET type = :type, duree = :duree, tarif = :tarif WHERE $this->key=:id";
+            $sql = "UPDATE $this->table SET type = :type, duree = :duree, tarif = :tarif 
+            WHERE $this->key=:id";
             $stmt = Connexion::getInstance()->prepare($sql);
             $id = $objet->getId();
             $type = $objet->getType();
@@ -84,6 +85,25 @@ namespace DAO\Consultation {
                 $rep .= "</td><td>" . $row["tarif"] . "</td></tr>";
             }
             return $rep . "</table>";
+        }
+
+        public function readAllConsultation()
+        {
+            // On utilise le prepared statemet qui simplifie les typages
+            $sql = "SELECT * FROM $this->table";
+            $stmt = Connexion::getInstance()->prepare($sql);
+            $stmt->execute();
+            $resultat = array();
+            while ($row = $stmt->fetch()) {
+                $id_consultation = $row["id_consultation"];
+                $type = $row["type"];
+                $duree = $row["duree"];
+                $tarif = $row["tarif"];
+                $rep = new \Promed\Consultation\Consultation($type, $duree, $tarif);
+                $rep->setId($id_consultation);
+                $resultat[] = $rep;
+            }
+            return $resultat;
         }
     }
 }

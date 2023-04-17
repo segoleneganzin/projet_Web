@@ -15,10 +15,10 @@ namespace DAO\Rdv {
 
         public function create($objet)
         {
-            $sql = "INSERT INTO $this->table (date_rdv, id_praticien, id_patient, id_consultation) 
+            $sql = "INSERT INTO $this->table (date_rdv, id_praticien, id_patient, id_consultation)
             VALUES (:date_rdv, :id_praticien, :id_patient, :id_consultation)";
             $stmt = Connexion::getInstance()->prepare($sql);
-            $date_rdv = $objet->getDateRDV();
+            $date_rdv = $objet->getDateRdv();
             $id_praticien = $objet->getPrat();
             $id_patient = $objet->getPat();
             $id_consultation = $objet->getConsultation();
@@ -56,10 +56,11 @@ namespace DAO\Rdv {
 
         public function update($objet)
         {
-            $sql = "UPDATE $this->table SET date_rdv = :date_rdv, id_praticien = :id_praticien, id_patient = :id_patient, id_consultation = :id_consultation WHERE $this->key=:id";
+            $sql = "UPDATE $this->table SET date_rdv = :date_rdv, id_praticien = :id_praticien, 
+            id_patient = :id_patient, id_consultation = :id_consultation WHERE $this->key=:id";
             $stmt = Connexion::getInstance()->prepare($sql);
             $id = $objet->getId();
-            $date_rdv = $objet->getDateRDV();
+            $date_rdv = $objet->getDateRdv();
             $id_praticien = $objet->getPrat()->getId();
             $id_patient = $objet->getPat()->getId();
             $id_consultation = $objet->getConsultation()->getId();
@@ -71,12 +72,10 @@ namespace DAO\Rdv {
             $stmt->execute();
         }
 
-        public function delete($objet)
+        public function delete($id)
         {
-            $sql = "SET FOREIGN_KEY_CHECKS=0; DELETE FROM $this->table WHERE $this->key=:id; 
-        SET FOREIGN_KEY_CHECKS=1";
+            $sql = "SET FOREIGN_KEY_CHECKS=0; DELETE FROM $this->table WHERE $this->key=:id; SET FOREIGN_KEY_CHECKS=1";
             $stmt = Connexion::getInstance()->prepare($sql);
-            $id = $objet->getId();
             $stmt->bindParam(':id', $id);
             $stmt->execute();
         }
@@ -94,6 +93,32 @@ namespace DAO\Rdv {
                 $rep .= "</td><td>" . $row["id_consultation"] . "</td></tr>";
             }
             return $rep . "</table>";
+        }
+
+        public function readAllRdv()
+        {
+            $sql = "SELECT * FROM $this->table";
+            $stmt = Connexion::getInstance()->prepare($sql);
+            $stmt->execute();
+
+            $resultat = array();
+            while ($row = $stmt->fetch()) {
+                $id_rdv = $row["id_rdv"];
+                $date_rdv = $row["date_rdv"];
+                $id_praticien  = $row["id_praticien"];
+                $id_patient  = $row["id_patient"];
+                $id_consultation  = $row["id_consultation"];
+                $daoPrat = new \DAO\Praticien\PraticienDAO();
+                $praticien = $daoPrat->read($id_praticien);
+                $daoPat = new \DAO\Patient\PatientDAO();
+                $patient = $daoPat->read($id_patient);
+                $daoConsult = new \DAO\Consultation\ConsultationDAO();
+                $consultation = $daoConsult->read($id_consultation);
+                $rep = new \Promed\Rdv\Rdv($date_rdv, $praticien, $patient, $consultation);
+                $rep->setId($id_rdv);
+                $resultat[] = $rep;
+            }
+            return $resultat;
         }
     }
 }

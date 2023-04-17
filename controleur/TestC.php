@@ -31,5 +31,5 @@ require RACINE . "/db/PraticienDAO.php";
 require RACINE . "/metier/Praticien.php";
 
 // appel du script de vue qui permet de gerer l'affichage des donnees
-
+$titre = "Promed";
 include RACINE . "/vue/TestV.php";

@@ -6,6 +6,7 @@ if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
 }
 
 require RACINE . "/db/Connexion.php";
+require_once RACINE . "/metier/Authentification.php";
 require RACINE . "/db/DAO.php";
 require RACINE . "/db/IdentiteDAO.php";
 require RACINE . "/metier/Identite.php";
@@ -16,7 +17,7 @@ $identiteDao = new DAO\Identite\IdentiteDAO();
 
 $url = 'fiche-patient';
 
-$identites = $identiteDao->readAll();
+$identites = $identiteDao->readAllPatients();
 
 if (isset($_POST['submit'])) {
     $selectedId = $_POST['identite_id'];
@@ -25,7 +26,17 @@ if (isset($_POST['submit'])) {
     exit();
 }
 
-$titre = "Rechercher";
-include RACINE . "/vue/Entete.html.php";
-include RACINE . "/vue/VueRecherche.php";
+
+if (\Promed\Authentification\Authentification::isLoggedOn()) {
+    $titre = "Recherche Patient";
+    if (isset($_GET["action"]) && $_GET["action"] == "recherche") {
+        if (isset($_SESSION["role"]) && $_SESSION["role"] == "praticien") {
+            include RACINE . "/vue/Entete.html.php";
+            include RACINE . "/vue/VueRecherche.php";
+        }
+    } else {
+        $titre = "Authentification";
+        include RACINE . "/vue/VueAuthentification.php";
+    }
+}
 include RACINE . "/vue/Pied.html.php";

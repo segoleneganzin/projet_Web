@@ -33,7 +33,6 @@ namespace Promed\Consultation {
         {
             return $this->tarif;
         }
-
         public function setId($idConsultation)
         {
             $this->idConsultation = $idConsultation;
@@ -54,7 +53,6 @@ namespace Promed\Consultation {
             $this->tarif = $tarif;
             return $this;
         }
-
 
         function __toString()
         {

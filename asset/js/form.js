@@ -78,6 +78,7 @@ $(function () {
           if (validateMdp(mdp)) {
             $("input").val("");
             $("textarea").val("");
+            //si mdp valide envoi avec AJAX
             $.ajax({
               type: "POST",
               url: "?action=inscription",

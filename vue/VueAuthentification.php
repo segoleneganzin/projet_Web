@@ -1,7 +1,9 @@
 <img src="asset/images/promed_logo_3.png" alt="logo" class="image-connexion" />
 <div class="container">
+    <h1>Connexion</h1>
+    <hr />
     <div class="form">
-        <h1>Connexion</h1>
+
         <form class="form--input-container" action="./?action=connexion" method="POST">
 
             <input type="text" name="mail" placeholder="Identifiant de connexion" />
@@ -14,7 +16,7 @@
 
         <?php
         if (isset($_GET["action"]) && $_GET["action"] == "connexion-praticien") {
-            echo "<p>Nouveau praticien ? <a href='./?action=inscription'>Inscrivez-vous</a>";
+            echo "<p>Nouveau praticien ? <span style='font-weight:600'><a href='./?action=inscription'>Inscrivez-vous</a></span>";
         }
         ?>
     </div>

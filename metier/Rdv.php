@@ -6,7 +6,7 @@ namespace Promed\Rdv {
     {
 
         private $id_rdv  = 0;
-        private $date_rdv = "";
+        private $date_rdv;
         private $praticien;
         private $patient;
         private $consultation;
@@ -23,7 +23,7 @@ namespace Promed\Rdv {
         {
             return $this->id_rdv;
         }
-        public function getDateRDV()
+        public function getDateRdv()
         {
             return $this->date_rdv;
         }
@@ -45,9 +45,9 @@ namespace Promed\Rdv {
             $this->id_rdv = $id_rdv;
             return $this;
         }
-        public function setDateRDV($date_rdv)
+        public function setDateRdv($heure_debut)
         {
-            $this->date_rdv = $date_rdv;
+            $this->date_rdv = $heure_debut;
             return $this;
         }
         public function setPrat($praticien)
@@ -66,9 +66,12 @@ namespace Promed\Rdv {
             return $this;
         }
 
+
         function __toString()
         {
-            $rep = "<div class=\"infosIdentite\">id : [$this->id_rdv] date_rdv : [$this->date_rdv] id_praticien : [$this->praticien] id_patient : [$this->patient] id_consultation : [$this->consultation]";
+            $rep = "<div class=\"infosIdentite\">id : [$this->id_rdv] date_rdv : [$this->date_rdv] 
+            id_praticien : [$this->praticien] id_patient : [$this->patient] 
+            id_consultation : [$this->consultation]";
             return $rep;
         }
     }

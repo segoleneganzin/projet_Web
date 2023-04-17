@@ -1,18 +1,23 @@
 <div class="container" id="fiche_patient">
-    <label>Nom:</label>
-    <?php echo $fiche->getNom(); ?>
-    <label>Prénom:</label>
-    <?php echo $fiche->getPrenom(); ?>
-    <label>Adresse:</label>
-    <?php echo $adr; ?>
-    <label>Téléphone:</label>
-    <?php echo $fiche->getTel(); ?>
-    <label>Mail:</label>
-    <?php echo $fiche->getMail(); ?>
+    <h1>Fiche patient</h1>
+    <hr />
+    Nom : <?php echo $fiche->getNom(); ?><br>
+    Prénom : <?php echo $fiche->getPrenom(); ?><br>
+    Adresse : <?php echo $adr; ?><br>
+    Téléphone : <?php echo $fiche->getTel(); ?><br>
+    Mail : <?php echo $fiche->getMail(); ?><br>
 
     <form class="form--input-container" action="" method="POST">
         <label for="prise_rdv">Prendre un rendez-vous</label>
-        <input type="date" name="prise_rdv" placeholder="Date de Rendez-vous" />
+        <input type="date" name="prise_date" placeholder="Date de Rendez-vous" />
+        <input type="time" id="prise_heure" name="prise_heure" min="09:00" max="18:00" /> <!-- ici on peut gérer les créneaux ! pas sûre que ce soit utile mais bon... -->
+        <select name="consulation">
+            <?php foreach ($consultations as $consultation) : ?>
+                <option value="<?php echo $consultation->getId(); ?>">
+                    <?php echo $consultation->getType(); ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
         <input type="submit" value="Prendre Rendez-Vous" name="submit" />
     </form>
 </div>

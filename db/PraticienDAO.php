@@ -76,6 +76,7 @@ namespace DAO\Praticien {
             $stmt->execute();
         }
 
+
         static function getPraticiens()
         {
             $sql = "SELECT * FROM praticien";
@@ -88,6 +89,26 @@ namespace DAO\Praticien {
                 $rep .= "</td><td>" . $row["id_identite"] . "</td></tr>";
             }
             return $rep . "</table>";
+        }
+
+        public function readByIdIdentite($idIdentite)
+        {
+            // On utilise le prepared statemet qui simplifie les typages
+            $sql = "SELECT * FROM $this->table WHERE id_identite=:id";
+            $stmt = Connexion::getInstance()->prepare($sql);
+            $stmt->bindParam(':id', $idIdentite);
+            $stmt->execute();
+
+            $row = $stmt->fetch();
+            $id_praticien = $row["id_praticien"];
+            $specialiste = $row["specialiste"];
+            $description = $row["description"];
+            $id_identite = $row["id_identite"];
+            $daoIdentite = new \DAO\Identite\IdentiteDAO();
+            $identite = $daoIdentite->read($id_identite);
+            $rep = new \Promed\Praticien\Praticien($specialiste, $description, $identite);
+            $rep->setId($id_praticien);
+            return $rep;
         }
     }
 }
