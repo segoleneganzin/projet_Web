@@ -5,4 +5,7 @@ body {
 a {
   text-decoration: none;
   color: $principal-text-color;
+  &:hover {
+    color: $secondary-text-color;
+  }
 }

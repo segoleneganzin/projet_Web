@@ -9,7 +9,6 @@ if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
     die('Erreur : ' . basename(__FILE__));
 }
 
-
 require RACINE . "/db/Connexion.php";
 require RACINE . "/db/DAO.php";
 
@@ -33,6 +32,4 @@ require RACINE . "/metier/Praticien.php";
 
 // appel du script de vue qui permet de gerer l'affichage des donnees
 $titre = "Promed";
-include RACINE . "/vue/entete.html.php";
 include RACINE . "/vue/TestV.php";
-include RACINE . "/vue/Pied.html.php";

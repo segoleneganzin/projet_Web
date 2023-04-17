@@ -3,61 +3,75 @@ nav {
   left: 0px;
   width: 100vw;
   z-index: 100;
-  //   padding-top: 5vh;
-}
 
-#menuGeneral {
-  text-align: center;
-  margin: auto auto;
-  list-style-type: none;
-  padding-left: 0px;
-  li {
-    float: left;
-    width: 14.28%;
-    height: 100%;
-    vertical-align: middle;
-    line-height: 60px;
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-    }
-    a {
-      display: inline-block;
+  #menuGeneral {
+    text-align: center;
+    margin: auto auto;
+    list-style-type: none;
+    padding-left: 0px;
+    li {
+      float: left;
+      width: 14.28%;
+      height: 100%;
       vertical-align: middle;
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: bold;
-      img {
-        width: 10vw;
-        position: relative;
-        top: -10px;
+      line-height: 60px;
+      a {
+        display: inline-block;
+        vertical-align: middle;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        color: $secondary-text_color;
+        &:hover {
+          color: $container-back_color;
+        }
+        img {
+          width: 10vw;
+          position: relative;
+          top: -10px;
+        }
       }
     }
   }
 }
 
-#menuContextuel {
-  position: fixed;
-  height: 100%;
-  z-index: 0;
-  overflow: hidden;
-  margin-top: 0px;
-  padding-top: 0px;
-  list-style-type: none;
-  padding-left: 0px;
-  border-radius: 3px;
-  li {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    padding-left: 8px;
-    /*background-color : rgba(238,144,9,0.3);*/
-    &:first-child {
-      text-align: center;
-    }
-    a {
-      font-weight: bold;
-      text-decoration: none;
+// #menuContextuel {
+//   position: fixed;
+//   height: 100%;
+//   z-index: 0;
+//   overflow: hidden;
+//   margin-top: 0px;
+//   padding-top: 0px;
+//   list-style-type: none;
+//   padding-left: 0px;
+//   border-radius: 3px;
+//   li {
+//     padding-top: 5px;
+//     padding-bottom: 5px;
+//     margin-top: 0px;
+//     margin-bottom: 0px;
+//     padding-left: 8px;
+//     &:first-child {
+//       text-align: center;
+//     }
+//     a {
+//       font-weight: bold;
+//       text-decoration: none;
+//     }
+//   }
+// }
+
+@media screen and (max-width: 1200px) {
+  #menuGeneral {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    li a {
+      display: block;
+      width: 80vw;
+      img {
+        width: 100vw;
+      }
     }
   }
 }

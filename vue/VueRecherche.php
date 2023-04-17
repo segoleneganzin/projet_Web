@@ -1,6 +1,8 @@
-<div class="container">
+<div class="container recherche">
+    <h1>Rechercher un patient</h1>
+    <hr />
     <div class="form">
-        <h1>Rechercher</h1>
+
         <form class="form--input-container" action="" method="POST">
             <select name="identite_id">
                 <?php foreach ($identites as $identite) : ?>

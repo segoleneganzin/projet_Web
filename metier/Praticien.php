@@ -2,6 +2,8 @@
 
 namespace Promed\Praticien {
 
+    //require RACINE. "./db/RdvDAO.php";
+
     class Praticien
     {
 
@@ -52,6 +54,19 @@ namespace Promed\Praticien {
         {
             $this->identite = $identite;
             return $this;
+        }
+
+        static function getRdvPraticien($id)
+        {
+            $rdvDAO = new \DAO\Rdv\RdvDAO();
+            $rdvs = $rdvDAO->readAllRdv();
+            $rep = [];
+            foreach ($rdvs as $rdv) {
+                if ($rdv->getPrat()->getId() === $id) {
+                    $rep[] = $rdv;
+                }
+            }
+            return $rep;
         }
 
         function __toString()

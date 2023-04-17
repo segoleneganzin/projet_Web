@@ -1,0 +1,17 @@
+.recherche {
+  .form {
+    border: none;
+    margin-top: 0%;
+    &--input-container {
+      width: 20vw;
+      select {
+        padding: 2%;
+        border-radius: 10px;
+      }
+      input {
+        width: fit-content;
+        margin: 2% auto;
+      }
+    }
+  }
+}

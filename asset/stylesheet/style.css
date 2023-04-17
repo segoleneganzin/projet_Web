@@ -20,14 +20,21 @@ main {
   overflow-x: hidden;
 }
 
+h1 {
+  font-size: 3rem;
+}
+
 body {
   font-family: Arial;
-  color: black;
+  color: white;
 }
 
 a {
   text-decoration: none;
-  color: black;
+  color: white;
+}
+a:hover {
+  color: #007cc5;
 }
 
 nav {
@@ -35,78 +42,69 @@ nav {
   width: 100vw;
   z-index: 100;
 }
-
-#menuGeneral {
+nav #menuGeneral {
   text-align: center;
   margin: auto auto;
   list-style-type: none;
   padding-left: 0px;
 }
-#menuGeneral li {
+nav #menuGeneral li {
   float: left;
   width: 14.28%;
   height: 100%;
   vertical-align: middle;
   line-height: 60px;
 }
-#menuGeneral li:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-#menuGeneral li a {
+nav #menuGeneral li a {
   display: inline-block;
   vertical-align: middle;
   text-decoration: none;
   font-size: 16px;
   font-weight: bold;
+  color: #007cc5;
 }
-#menuGeneral li a img {
+nav #menuGeneral li a:hover {
+  color: #55555d;
+}
+nav #menuGeneral li a img {
   width: 10vw;
   position: relative;
   top: -10px;
 }
 
-#menuContextuel {
-  position: fixed;
-  height: 100%;
-  z-index: 0;
-  overflow: hidden;
-  margin-top: 0px;
-  padding-top: 0px;
-  list-style-type: none;
-  padding-left: 0px;
-  border-radius: 3px;
+@media screen and (max-width: 1200px) {
+  #menuGeneral {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+  }
+  #menuGeneral li a {
+    display: block;
+    width: 80vw;
+  }
+  #menuGeneral li a img {
+    width: 100vw;
+  }
 }
-#menuContextuel li {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  padding-left: 8px;
-  /*background-color : rgba(238,144,9,0.3);*/
-}
-#menuContextuel li:first-child {
-  text-align: center;
-}
-#menuContextuel li a {
-  font-weight: bold;
-  text-decoration: none;
-}
-
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 10vh auto;
+  border: 4px solid white;
+  border-radius: 10px;
+  padding: 5%;
+  width: 50vw;
 }
 .form--input-container {
   display: flex;
   flex-direction: column;
+  gap: 5px;
 }
 .form--input-container input,
 .form--input-container textarea {
-  margin-top: 2%;
   border-radius: 10px;
-  padding: 2%;
+  padding: 5%;
   border: none;
 }
 .form--input-container textarea {
@@ -115,7 +113,6 @@ nav {
 .form h1 {
   border-radius: 10px;
   padding: 2%;
-  background-color: white;
   margin-bottom: 5vh;
 }
 .form h2 {
@@ -126,12 +123,49 @@ nav {
   margin-top: 10%;
   font-weight: 600;
 }
+.form .error {
+  border: 2px solid red;
+}
+.form .ok {
+  background-color: white;
+  color: black;
+  border: none;
+}
+.form .success {
+  display: none;
+  background-color: #12cc1a;
+  border: #0fa015 1px solid;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 4px;
+}
+.form .form-status {
+  display: none;
+}
+.form .info {
+  font-size: 0.8em;
+  color: #ff6600;
+  letter-spacing: 2px;
+  padding-left: 5px;
+}
 
 .container {
   width: 60vw;
-  background-color: rgb(70, 70, 133);
+  background-color: #55555d;
   margin: 5vh auto;
   border-radius: 10px;
+  border: 2px solid #007cc5;
+  padding: 2% 5%;
+}
+.container h1 {
+  font-size: 2rem;
+  margin-bottom: 2%;
+  color: #007cc5;
+}
+.container hr {
+  margin-bottom: 2%;
 }
 .container table,
 .container th,
@@ -157,4 +191,64 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 2rem;
+  margin-top: 30vh;
+  padding: 5%;
+}
+.choixRole a {
+  padding: 2%;
+}
+
+@media screen and (max-width: 750px) {
+  .choixRole a {
+    font-size: 1rem;
+    padding: 2%;
+  }
+}
+.nouveau-patient .form {
+  border: none;
+  margin-top: 0%;
+}
+.nouveau-patient .form--input-container {
+  width: 20vw;
+}
+
+.recherche .form {
+  border: none;
+  margin-top: 0%;
+}
+.recherche .form--input-container {
+  width: 20vw;
+}
+.recherche .form--input-container select {
+  padding: 2%;
+  border-radius: 10px;
+}
+.recherche .form--input-container input {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 2% auto;
+}
+
+.rdv h2 {
+  margin-bottom: 2%;
+}
+.rdv .date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rdv .date input {
+  padding: 2%;
+  margin: 2%;
+}
+.rdv .date button {
+  padding: 2%;
+  height: -moz-fit-content;
+  height: fit-content;
+  border-radius: 10px;
+  border: none;
+}
+.rdv .date button:hover {
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */

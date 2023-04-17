@@ -14,8 +14,8 @@ namespace Promed\Authentification {
             $util = \DAO\Identite\IdentiteDAO::getUtilisateurByMailU($mail);
             $mdpBD = $util["mdp"];
             $role = $util["role"];
-            // echo "$mail, $mdpBD, $mdp";
-            // var_dump(password_verify($mdp, $mdpBD));
+            echo "$mail, $mdpBD, $mdp";
+            var_dump(password_verify($mdp, $mdpBD));
 
             $verify = password_verify($mdp, $mdpBD);
 

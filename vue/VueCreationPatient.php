@@ -1,6 +1,7 @@
-<div class="container">
+<div class="container nouveau-patient">
+    <h1>Nouvelle fiche patient</h1>
+    <hr />
     <div class="form">
-        <h1>Nouvelle fiche patient</h1>
         <form class="form--input-container" action="./?action=inscription" method="POST">
             <h2>Identité</h2>
             <input type="text" name="nom" placeholder="Nom" />
