@@ -10,13 +10,15 @@ namespace Promed\Rdv {
         private $praticien;
         private $patient;
         private $consultation;
+        private $statut = "maintenu";
 
-        function __construct($date_rdv, $praticien, $patient, $consultation)
+        function __construct($date_rdv, $praticien, $patient, $consultation, $statut)
         {
             $this->date_rdv = $date_rdv;
             $this->praticien = $praticien;
             $this->patient = $patient;
             $this->consultation = $consultation;
+            $this->statut = $statut;
         }
 
         public function getId()
@@ -38,6 +40,10 @@ namespace Promed\Rdv {
         public function getConsultation()
         {
             return $this->consultation;
+        }
+        public function getStatut()
+        {
+            return $this->statut;
         }
 
         public function setId($id_rdv)
@@ -63,6 +69,11 @@ namespace Promed\Rdv {
         public function setConsultation($consultation)
         {
             $this->consultation = $consultation;
+            return $this;
+        }
+        public function setStatut($statut)
+        {
+            $this->statut = $statut;
             return $this;
         }
 

@@ -5,7 +5,7 @@ namespace Promed\Consultation {
     class Consultation
     {
 
-        private $idConsultation = 0;
+        private $id_consultation = 0;
         private $type = "";
         private $duree = 0;
         private $tarif = 0;
@@ -19,7 +19,7 @@ namespace Promed\Consultation {
 
         public function getId()
         {
-            return $this->idConsultation;
+            return $this->id_consultation;
         }
         public function getType()
         {
@@ -33,9 +33,9 @@ namespace Promed\Consultation {
         {
             return $this->tarif;
         }
-        public function setId($idConsultation)
+        public function setId($id_consultation)
         {
-            $this->idConsultation = $idConsultation;
+            $this->id_consultation = $id_consultation;
             return $this;
         }
         public function setType($type)
@@ -56,7 +56,7 @@ namespace Promed\Consultation {
 
         function __toString()
         {
-            $rep = "<div class=\"infosIdentite\">id : [$this->idConsultation] type : [$this->type] duree : [$this->duree] tarif : [$this->tarif]";
+            $rep = "<div class=\"infosIdentite\">id : [$this->id_consultation] type : [$this->type] duree : [$this->duree] tarif : [$this->tarif]";
             return $rep;
         }
     }

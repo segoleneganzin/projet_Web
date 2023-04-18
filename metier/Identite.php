@@ -5,7 +5,7 @@ namespace Promed\Identite {
     class Identite
     {
 
-        private $idIdentite = 0;
+        private $id_identite = 0;
         private $nom = "";
         private $prenom = "";
         private $tel = "";
@@ -25,20 +25,9 @@ namespace Promed\Identite {
             $this->adresse = $adresse;
         }
 
-        // function __construct($idIdentite, $nom, $prenom, $tel, $mail, $mdp, $role, $adresse) {
-        //     $this->idIdentite = $idIdentite;
-        //     $this->nom = $nom;
-        //     $this->prenom = $prenom;
-        //     $this->tel = $tel;
-        //     $this->mail = $mail;
-        //     $this->mdp = $mdp;
-        //     $this->role = $role;
-        //     $this->adresse = $adresse;
-        // }
-
         public function getId()
         {
-            return $this->idIdentite;
+            return $this->id_identite;
         }
         public function getNom()
         {
@@ -68,9 +57,9 @@ namespace Promed\Identite {
         {
             return $this->adresse;
         }
-        public function setId($idIdentite)
+        public function setId($id_identite)
         {
-            $this->idIdentite = $idIdentite;
+            $this->id_identite = $id_identite;
             return $this;
         }
         public function setNom($nom)
@@ -111,7 +100,7 @@ namespace Promed\Identite {
 
         function __toString()
         {
-            $rep = "<div class=\"infosIdentite\">id : [$this->idIdentite] nom : [$this->nom] prenom : [$this->prenom] tel : [$this->tel] mail : [$this->mail] mdp : [$this->mdp] role : [$this->role] adresse : [$this->adresse]</div>";
+            $rep = "<div class=\"infosIdentite\">id : [$this->id_identite] nom : [$this->nom] prenom : [$this->prenom] tel : [$this->tel] mail : [$this->mail] mdp : [$this->mdp] role : [$this->role] adresse : [$this->adresse]</div>";
             return $rep;
         }
     }

@@ -43,6 +43,19 @@ namespace Promed\Patient {
             return $this;
         }
 
+        static function getRdvPatient($id)
+        {
+            $rdvDAO = new \DAO\Rdv\RdvDAO();
+            $rdvs = $rdvDAO->readAllRdv();
+            $rep = [];
+            foreach ($rdvs as $rdv) {
+                if ($rdv->getPat()->getId() === $id) {
+                    $rep[] = $rdv;
+                }
+            }
+            return $rep;
+        }
+
         function __toString()
         {
             $rep = "<div class=\"infosPatient\">id : [$this->id_patient] date_de_naissance : [$this->date_de_naissance] identite : </div>[$this->identite]";

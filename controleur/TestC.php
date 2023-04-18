@@ -9,26 +9,10 @@ if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
     die('Erreur : ' . basename(__FILE__));
 }
 
-require RACINE . "/db/Connexion.php";
-require RACINE . "/db/DAO.php";
-
-require RACINE . "/db/IdentiteDAO.php";
-require RACINE . "/metier/Identite.php";
-
-require RACINE . "/db/AdresseDAO.php";
-require RACINE . "/metier/Adresse.php";
-
-require RACINE . "/db/ConsultationDAO.php";
-require RACINE . "/metier/Consultation.php";
-
-require RACINE . "/db/RdvDAO.php";
-require RACINE . "/metier/Rdv.php";
-
-require RACINE . "/db/PatientDAO.php";
-require RACINE . "/metier/Patient.php";
-
-require RACINE . "/db/PraticienDAO.php";
-require RACINE . "/metier/Praticien.php";
+// On require_once les fichiers nécessaires
+array_map(function ($dependances) {
+    require_once $dependances;
+}, TESTC);
 
 // appel du script de vue qui permet de gerer l'affichage des donnees
 $titre = "Promed";

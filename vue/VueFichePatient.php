@@ -7,17 +7,19 @@
     Téléphone : <?php echo $fiche->getTel(); ?><br>
     Mail : <?php echo $fiche->getMail(); ?><br>
 
-    <form class="form--input-container" action="" method="POST">
-        <label for="prise_rdv">Prendre un rendez-vous</label>
-        <input type="date" name="prise_date" placeholder="Date de Rendez-vous" />
-        <input type="time" id="prise_heure" name="prise_heure" min="09:00" max="18:00" /> <!-- ici on peut gérer les créneaux ! pas sûre que ce soit utile mais bon... -->
-        <select name="consulation">
-            <?php foreach ($consultations as $consultation) : ?>
-                <option value="<?php echo $consultation->getId(); ?>">
-                    <?php echo $consultation->getType(); ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
-        <input type="submit" value="Prendre Rendez-Vous" name="submit" />
-    </form>
+    <div class="form">
+        <h2 for="prise_rdv">Prendre un rendez-vous</h2>
+        <form class="form--input-container" action="" method="POST">
+            <input type="date" name="prise_date" placeholder="Date de Rendez-vous" />
+            <input type="time" id="prise_heure" name="prise_heure" />
+            <select name="consultation">
+                <?php foreach ($consultations as $consultation) : ?>
+                    <option value="<?php echo $consultation->getId(); ?>">
+                        <?php echo $consultation->getType(); ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+            <input type="submit" value="Prendre Rendez-Vous" name="submit" />
+        </form>
+    </div>
 </div>

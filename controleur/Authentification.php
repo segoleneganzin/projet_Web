@@ -1,9 +1,4 @@
 <?php
-require_once RACINE . "/metier/Identite.php";
-require_once RACINE . "/metier/Authentification.php";
-require_once RACINE . "/db/Connexion.php";
-require_once RACINE . "/db/DAO.php";
-require_once RACINE . "/db/IdentiteDAO.php";
 
 /**
  *	Controleur secondaire : authentification 
@@ -13,7 +8,12 @@ if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
     die('Erreur : ' . basename(__FILE__));
 }
 
-// recuperation des donnees GET, POST, et SESSION
+// On require_once les fichiers nécessaires
+array_map(function ($dependances) {
+    require_once $dependances;
+}, AUTHENTIFICATION);
+
+// recuperation des donnees POST
 if (isset($_POST["mail"]) && isset($_POST["mdp"])) {
     $mail = $_POST["mail"];
     $mdp = $_POST["mdp"];
@@ -29,9 +29,9 @@ if (\Promed\Authentification\Authentification::isLoggedOn()) { // si l'utilisate
     if (isset($_SESSION["role"])) {
         $role = $_SESSION["role"];
         if ($role == "praticien") {
-            header("Location: http://localhost/projet_Web/?action=rdv-praticien");
+            header("Location: ?action=rdv-praticien");
         } else {
-            header("Location: http://localhost/projet_Web/?action=rdv-patient");
+            header("Location: ?action=rdv-patient");
         }
     }
 } else { // l'utilisateur n'est pas connecté, on affiche le formulaire de connexion
