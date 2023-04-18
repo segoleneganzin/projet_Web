@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 /**
  *	Controleur secondaire : FichePatient 
@@ -10,12 +9,12 @@ if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
     die('Erreur : ' . basename(__FILE__));
 }
 
-// On require_once les fichiers nécessaires
+// On require_once les dependances nécessaires
 array_map(function ($dependances) {
     require_once $dependances;
 }, FICHEPATIENT);
 
-if (\Promed\Authentification\Authentification::isLoggedOn()) { // si l'utilisateur est connecte on redirige vers le controleur praticien ou patient
+if (\Promed\Authentification\Authentification::isLoggedOn()) { // on vérifie si l'utilisateur est connecté
     if (isset($_SESSION["role"]) && $_SESSION["role"] == "praticien") {
         $identiteDao = new DAO\Identite\IdentiteDAO();
         $praticienDAO = new DAO\Praticien\PraticienDAO();
@@ -38,16 +37,13 @@ if (\Promed\Authentification\Authentification::isLoggedOn()) { // si l'utilisate
             $fiche->getAdresse()->getCp() . " " . $fiche->getAdresse()->getVille();
 
         // récupérer l'Id Praticien : on prend le mail, on trouve l'idIdentite, et on l'utilise pour trouver IdPraticien
-        //$infoIdentite = $identiteDao->getUtilisateurByMailU($_SESSION["mail"]);
         $infoIdentite = \DAO\Identite\IdentiteDAO::getUtilisateurByMailU($_SESSION["mail"]);
         $identite_prat = $infoIdentite["id_identite"];
         $id_praticien = $praticienDAO->readByIdIdentite($identite_prat)->getId();
 
         // récupérer l'Id Patient pour la prise de rendez-vous :
         $id_patient = $patientDAO->readByIdIdentite($id_identite)->getId();
-        var_dump($id_identite);
-        var_dump($id_patient);
-        var_dump($id_praticien);
+
         //Obtenir les types de consultations
         $consultations = $consultationDao->readAllConsultation();
 
@@ -68,12 +64,17 @@ if (\Promed\Authentification\Authentification::isLoggedOn()) { // si l'utilisate
                 echo "<script>alert('Merci de bien remplir les champs demandés.');</script>";
             }
         }
+
+        // appel du script de vue avec le titre associé
         $titre = "Fiche Patient";
-        include RACINE . "/vue/Entete.html.php";
-        include RACINE . "/vue/VueFichePatient.php";
-        include RACINE . "/vue/Pied.html.php";
-    } else { // l'utilisateur n'est pas connecté, on affiche le formulaire de connexion
-        $titre = "Authentification";
-        header('Location: ?action=connexion');
+        include PATH_ENTETE;
+        include PATH_FICHEPATIENT;
+        include PATH_PIED;
+    } else { // l'utilisateur est un patient, il n'a pas accès à cette page, il est donc redirigé
+        $titre = "Mes rendez-vous";
+        header('Location: ?action=rdv-patient');
     }
+} else { // l'utilisateur n'est pas connecté, on affiche le formulaire de connexion
+    $titre = "Authentification";
+    header('Location: ?action=connexion');
 }

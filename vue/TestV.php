@@ -2,139 +2,99 @@
 <div class="container">
     <?php
 
+    //*****************************************ADRESSE
+
+    $daoAdr = new \DAO\Adresse\AdresseDAO();
+
+    //!create d'une adresse
+    // $obj = new \Promed\Adresse\Adresse(1, "nom_de_rue", 56000, "nom_ville");
+    // echo "Objet crée : " . $obj;
+    // $daoAdr->create($obj);
+
+    //!read d'une adresse
+    // $id = 1;
+    // $readAdr = $daoAdr->read($id);
+    // echo "Read de l'adresse avec l'id ($id) : $readAdr";
+
+    //!update d'une adresse
+    // $id = 1;
+    // $readAdr = $daoAdr->read($id);
+    // $readAdr->setRue("Test");
+    // $daoAdr->update($readAdr);
+    // echo "Update de l'adresse avec l'id ($id) : $readAdr";
+
+    //!delete d'une adresse
+    // $id = 1;
+    // $readAdr = $daoAdr->read($id);
+    // $daoAdr->delete($readAdr);
+    // echo "Vous avez supprimé l'adresse avec l'id ($id)";
+
+    // echo "<hr/>";
+
+
     //*****************************************IDENTITE 
 
     $daoIdentite = new \DAO\Identite\IdentiteDAO();
 
     //!create d'une identite
     // $role = "praticien";
-    // $id_adresse = 2;
+    // $id_adresse = 1;
     // $mdp_brut = "toto";
     // $hash = password_hash($mdp_brut, PASSWORD_DEFAULT);
-    // $obj = new Identite("toto", "bob", "0123456789", "test@test.com", $hash, $role, $id_adresse);
+    // $obj = new \Promed\Identite\Identite("nom_identite", "prenom_identite", "0123456789", "test@test.com", $hash, $role, $id_adresse);
     // echo "Objet crée : " . $obj;
     // $createIdentite = $daoIdentite->create($obj);
 
     //!read d'une identite
-    // $readIdentite = $daoIdentite->read(1);
-    // echo "Read de l'identite avec l'id (1) : $readIdentite";
-    // echo "Arborescence de l'identite avec l'id (1) : ";
+    // $id = 1;
+    // $readIdentite = $daoIdentite->read($id);
+    // echo "Read de l'identite avec l'id ($id) : $readIdentite";
+    // echo "Arborescence de l'identite avec l'id ($id) : ";
     // var_dump($readIdentite);
 
     //!update d'une identite
-    // $readIdentite = $daoIdentite->read(1);
+    // $id = 1;
+    // $readIdentite = $daoIdentite->read($id);
     // $readIdentite->setNom("Test");
     // $daoIdentite->update($readIdentite);
+    // echo "Update de l'identite avec l'id ($id) : $readIdentite";
 
     //!delete d'une identite
-    // $readIdentite = $daoIdentite->read(4);
+    // $id = 1;
+    // $readIdentite = $daoIdentite->read($id);
     // $daoIdentite->delete($readIdentite);
+    // echo "Vous avez supprimé l'identite avec l'id ($id)";
 
     // echo "<hr/>";
-
-
-    //*****************************************ADRESSE
-
-    $daoAdr = new \DAO\Adresse\AdresseDAO();
-
-    //!create d'une adresse
-    // $obj = new Adresse(2, "test", 56000, "Lorient");
-    // echo "Objet crée : " . $obj;
-    // $daoAdr->create($obj);
-
-    //!read d'une adresse
-    // $readAdr = $daoAdr->read(2);
-    // echo "Read de l'adresse avec l'id (2) : $readAdr";
-
-    //!update d'une adresse
-    // $readAdresse = $daoAdr->read(4);
-    // $readAdresse->setRue("le quatrième");
-    // $daoAdr->update($readAdresse);
-
-    //!delete d'une adresse
-    // $readAdresse = $daoAdr->read(6);
-    // $daoAdr->delete($readAdresse);
-
-    // echo "<hr/>";
-
-
-    //*****************************************CONSULTATION
-
-    $daoConsult = new \DAO\Consultation\ConsultationDAO();
-
-    //!create d'une consultation
-    // $obj = new Consultation("Bilan", "1 heure", 15.99);
-    // echo "Objet crée : " . $obj;
-    // $daoConsult->create($obj);
-
-    //!read d'une consultation
-    // $readConsult = $daoConsult->read(1);
-    // echo "Read de la consultation avec l'id (1) : $readConsult";
-    // echo "Arborescence de la consultation avec l'id (1) : ";
-    // var_dump($readConsult);
-
-    //!update d'une consultation
-    // $readConsult = $daoConsult->read(2);
-    // $readConsult->setType("blablou");
-    // $daoConsult->update($readConsult);
-
-    //!delete d'une consultation
-    // $readConsult = $daoConsult->read(2);
-    // $daoConsult->delete($readConsult);
-
-    // echo "<hr/>";
-
-
-    //*****************************************RDV
-
-    $daoRdv = new \DAO\Rdv\RdvDAO();
-
-    //!create d'un rdv
-    // $obj = new Rdv(date("Y-m-d H:i:s", strtotime("+ 2 hours")), 1, 1, 1);
-    // echo "Objet crée : " . $obj;
-    // $daoRdv->create($obj);
-
-    //!read d'un rdv
-    // $rdv = $daoRdv->read(1);
-    // echo "Read du rdv avec l'id (1) : $rdv";
-    // echo "Arborescence du rdv avec l'id (1) : ";
-    // var_dump($rdv);
-
-    //!update d'un rdv
-    // $readRdv = $daoRdv->read(2);
-    // $readRdv->setDateRDV(date("Y-m-d H:i:s", strtotime("+ 2 hours")));
-    // $daoRdv->update($readRdv);
-
-    //!delete d'un rdv
-    // $readRdv = $daoRdv->read(2);
-    // $daoRdv->delete($readRdv);
-
-    // echo "<hr/>";
-
 
     //*****************************************PATIENT
 
     $daoPatient = new \DAO\Patient\PatientDAO();
 
     //!create d'un patient
-    // $obj = new Patient("1999-09-20", 1);
+    // $obj = new \Promed\Patient\Patient("1999-09-20", 1);
     // echo "Objet crée : " . $obj;
     // $daoPatient->create($obj);
 
     //!read d'un patient
-    // $readPatient = $daoPatient->read(1);
-    // echo "Read du patient avec l'id (1) : $readPatient";
-    // echo "Arborescence du patient avec l'id (1) : ";
+    // $id = 1;
+    // $readPatient = $daoPatient->read($id);
+    // echo "Read du patient avec l'id ($id) : $readPatient";
+    // echo "Arborescence du patient avec l'id ($id) : ";
     // var_dump($readPatient);
 
     //!update d'un patient
-    // $readPatient = $daoPatient->read(2);
+    // $id = 1;
+    // $readPatient = $daoPatient->read(1);
     // $readPatient->setDateDeNaissance("2023-09-20");
     // $daoPatient->update($readPatient);
+    // echo "Update du patient avec l'id ($id) : $readPatient";
 
     //!delete d'un patient
-    // $readPatient = $daoPatient->read(2);
+    // $id = 1;
+    // $readPatient = $daoPatient->read($id);
     // $daoPatient->delete($readPatient);
+    // echo "Vous avez supprimé le patient avec l'id ($id)";
 
 
     // echo "<hr/>";
@@ -145,24 +105,93 @@
     $daoPraticien = new \DAO\Praticien\PraticienDAO();
 
     //!create d'un praticien
-    // $obj = new Praticien("Ophtalmo", "Description du praticien", 2);
+    // $obj = new \Promed\Praticien\Praticien("Specialiste", "Description du praticien", 2);
     // echo "Objet crée : " . $obj;
     // $daoPraticien->create($obj);
 
     //!read d'un praticien
-    // $readPraticien = $daoPraticien->read(1);
-    // echo "Read du praticien avec l'id (1) : $readPraticien";
-    // echo "Arborescence du praticien avec l'id (1) : ";
+    // $id = 1;
+    // $readPraticien = $daoPraticien->read($id);
+    // echo "Read du praticien avec l'id ($id) : $readPraticien";
+    // echo "Arborescence du praticien avec l'id ($id) : ";
     // var_dump($readPraticien);
 
     //!update d'un praticien
-    // $readPraticien = $daoPraticien->read(2);
-    // $readPraticien->setSpecialiste("Chirurgien");
+    // $id = 1;
+    // $readPraticien = $daoPraticien->read($id);
+    // $readPraticien->setSpecialiste("Test");
     // $daoPraticien->update($readPraticien);
+    // echo "Update du praticien avec l'id ($id) : $readPraticien";
 
     //!delete d'un praticien
-    // $readPraticien = $daoPraticien->read(2);
+    // $id = 1;
+    // $readPraticien = $daoPraticien->read($id);
     // $daoPraticien->delete($readPraticien);
+    // echo "Vous avez supprimé le praticien avec l'id ($id)";
+
+    // echo "<hr/>";
+
+
+    //*****************************************CONSULTATION
+
+    $daoConsult = new \DAO\Consultation\ConsultationDAO();
+
+    //!create d'une consultation
+    // $obj = new \Promed\Consultation\Consultation("Bilan", 45, 15.99);
+    // echo "Objet crée : " . $obj;
+    // $daoConsult->create($obj);
+
+    //!read d'une consultation
+    // $id = 1;
+    // $readConsult = $daoConsult->read($id);
+    // echo "Read de la consultation avec l'id ($id) : $readConsult";
+    // echo "Arborescence de la consultation avec l'id ($id) : ";
+    // var_dump($readConsult);
+
+    //!update d'une consultation
+    // $id = 1;
+    // $readConsult = $daoConsult->read($id);
+    // $readConsult->setType("Test");
+    // $daoConsult->update($readConsult);
+    // echo "Update de la consultation avec l'id ($id) : $readConsult";
+
+    //!delete d'une consultation
+    // $id = 1;
+    // $readConsult = $daoConsult->read($id);
+    // $daoConsult->delete($readConsult);
+    // echo "Vous avez supprimé la consultation avec l'id ($id)";
+
+    // echo "<hr/>";
+
+
+    //*****************************************RDV
+
+    $daoRdv = new \DAO\Rdv\RdvDAO();
+
+    //!create d'un rdv
+    // $obj = new \Promed\Rdv\Rdv(date("Y-m-d H:i:s", strtotime("+ 2 hours")), 1, 1, 1, "test");
+    // echo "Objet crée : " . $obj;
+    // $daoRdv->create($obj);
+
+    //!read d'un rdv
+    // $id = 1;
+    // $rdv = $daoRdv->read($id);
+    // echo "Read du rdv avec l'id ($id) : $rdv";
+    // echo "Arborescence du rdv avec l'id ($id) : ";
+    // var_dump($rdv);
+
+    //!update d'un rdv
+    // $id = 1;
+    // $readRdv = $daoRdv->read($id);
+    // $readRdv->setDateRDV(date("Y-m-d H:i:s", strtotime("+ 1 day")));
+    // $daoRdv->update($readRdv);
+    // echo "Update du rdv avec l'id ($id) : $readRdv";
+
+    //!delete d'un rdv
+    // $id = 1;
+    // $readRdv = $daoRdv->read($id);
+    // $daoRdv->delete($readRdv);
+    // echo "Vous avez supprimé le rdv avec l'id ($id)";
 
     // echo "<hr/>";
 

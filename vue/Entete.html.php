@@ -1,7 +1,7 @@
 <?php
 
+// Un MVC utilise uniquement ses requêtes depuis le contrôleur principal : index.php
 if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
-    // Un MVC utilise uniquement ses requêtes depuis le contrôleur principal : index.php
     die('Erreur : ' . basename(__FILE__));
 }
 
@@ -19,8 +19,7 @@ if (isset($_SESSION["role"])) {
             <header>
                 <nav>
                     <ul id="menuGeneral">
-                        <li id="logo"><a href="./?action=accueil"><img src="asset/images/promed_logo_3.png" alt="logo" /></a></li>
-                        <!-- <li><a href="./?action=profil-praticien">Mon profil praticien</a></li> -->
+                        <li id="logo"><img src="asset/images/promed_logo_3.png" alt="logo" /></li>
                         <li><a href="./?action=creation-patient">Ajouter patients</a></li>
                         <li><a href="./?action=recherche">Chercher patient</a></li>
                         <li><a href="./?action=rdv-praticien">Mes rendez-vous</a></li>

@@ -9,7 +9,7 @@ if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
     die('Erreur : ' . basename(__FILE__));
 }
 
-// On require_once les fichiers nécessaires
+// On require_once les dependances nécessaires
 array_map(function ($dependances) {
     require_once $dependances;
 }, DECONNEXION);

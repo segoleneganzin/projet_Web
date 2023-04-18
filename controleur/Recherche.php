@@ -9,35 +9,32 @@ if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
     die('Erreur : ' . basename(__FILE__));
 }
 
-// On require_once les fichiers nécessaires
+// On require_once les dependances nécessaires
 array_map(function ($dependances) {
     require_once $dependances;
 }, RECHERCHE);
 
 if (\Promed\Authentification\Authentification::isLoggedOn()) {
-    if (isset($_GET["action"]) && $_GET["action"] == "recherche") {
-        if (isset($_SESSION["role"]) && $_SESSION["role"] == "praticien") {
-            $identiteDao = new DAO\Identite\IdentiteDAO();
+    if (isset($_SESSION["role"]) && $_SESSION["role"] == "praticien") {
+        $identiteDao = new DAO\Identite\IdentiteDAO();
 
-            $titre = "Recherche Patient";
+        $identites = $identiteDao->readAllPatients();
 
-            $url = 'fiche-patient';
-
-            $identites = $identiteDao->readAllPatients();
-
-            if (isset($_POST['submit'])) {
-                $selectedId = $_POST['id_identite'];
-                header("Location: ?action=fiche-patient&id=$selectedId");
-                // empêche l'exécution d'autres instructions pour éviter erreur
-                exit();
-            }
-
-            include RACINE . "/vue/Entete.html.php";
-            include RACINE . "/vue/VueRecherche.php";
-            include RACINE . "/vue/Pied.html.php";
+        if (isset($_POST['submit'])) {
+            $selectedId = $_POST['id_identite'];
+            header("Location: ?action=fiche-patient&id=$selectedId");
+            // empêche l'exécution d'autres instructions pour éviter erreur
+            exit();
         }
+
+        // appel du script de vue avec le titre associé
+        $titre = "Recherche Patient";
+        vueRecherche($titre, $identites);
+    } else { // l'utilisateur est un patient, il n'a pas accès à cette page, il est donc redirigé
+        $titre = "Mes rendez-vous";
+        header('Location: ?action=rdv-patient');
     }
-} else {
+} else { // l'utilisateur n'est pas connecté, on affiche le formulaire de connexion
     $titre = "Authentification";
     header('Location: ?action=connexion');
 }

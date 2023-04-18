@@ -4,11 +4,12 @@
  *	Controleur secondaire : authentification 
  */
 
+// Un MVC utilise uniquement ses requêtes depuis le contrôleur principal : index.php
 if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
     die('Erreur : ' . basename(__FILE__));
 }
 
-// On require_once les fichiers nécessaires
+// On require_once les dependances nécessaires
 array_map(function ($dependances) {
     require_once $dependances;
 }, AUTHENTIFICATION);
@@ -35,8 +36,7 @@ if (\Promed\Authentification\Authentification::isLoggedOn()) { // si l'utilisate
         }
     }
 } else { // l'utilisateur n'est pas connecté, on affiche le formulaire de connexion
+    // appel du script de vue avec le titre associé
     $titre = "Authentification";
-    include RACINE . "/vue/Head.html.php";
-    include RACINE . "/vue/VueAuthentification.php";
-    include RACINE . "/vue/Pied.html.php";
+    vueAuthentification($titre);
 }

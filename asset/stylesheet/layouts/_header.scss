@@ -9,12 +9,14 @@ nav {
     margin: auto auto;
     list-style-type: none;
     padding-left: 0px;
+
     li {
       float: left;
       width: 14.28%;
       height: 100%;
       vertical-align: middle;
       line-height: 60px;
+
       a {
         display: inline-block;
         vertical-align: middle;
@@ -22,14 +24,16 @@ nav {
         font-size: 16px;
         font-weight: bold;
         color: $secondary-text_color;
+
         &:hover {
           color: $container-back_color;
         }
-        img {
-          width: 10vw;
-          position: relative;
-          top: -10px;
-        }
+      }
+
+      img {
+        width: 10vw;
+        position: relative;
+        top: -10px;
       }
     }
   }
@@ -66,9 +70,11 @@ nav {
     width: 80vw;
     display: flex;
     flex-direction: column;
+
     li a {
       display: block;
       width: 80vw;
+
       img {
         width: 100vw;
       }

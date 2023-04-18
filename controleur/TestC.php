@@ -14,6 +14,6 @@ array_map(function ($dependances) {
     require_once $dependances;
 }, TESTC);
 
-// appel du script de vue qui permet de gerer l'affichage des donnees
+// appel du script de vue avec le titre associé
 $titre = "Promed";
-include RACINE . "/vue/TestV.php";
+vueTest($titre);

@@ -9,7 +9,7 @@ if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
     die('Erreur : ' . basename(__FILE__));
 }
 
-// On require_once les fichiers nécessaires
+// On require_once les dependances nécessaires
 array_map(function ($dependances) {
     require_once $dependances;
 }, RDV);
@@ -33,8 +33,8 @@ if (\Promed\Authentification\Authentification::isLoggedOn()) {
         );
 
         // ici on récupère l'ID du praticien pour pouvoir afficher les rendez-vous du praticien connecté 
-        $idIdentite = $infoIdentite["id_identite"];
-        $idPraticien = $praticienDAO->readByIdIdentite($idIdentite)->getId();
+        $id_identite = $infoIdentite["id_identite"];
+        $idPraticien = $praticienDAO->readByIdIdentite($id_identite)->getId();
         $rdvs = \Promed\Praticien\Praticien::getRdvPraticien($idPraticien);
 
 
@@ -47,7 +47,7 @@ if (\Promed\Authentification\Authentification::isLoggedOn()) {
         // permet d'annuler un rdv
         if (isset($_POST['annuler'])) {
             $id = $_POST['id'];
-            // on appelle la méthode uptade
+            // on appelle la méthode update
             $rdv = $RdvDAO->read($id);
             $rdv->setStatut("annulé");
             $RdvDAO->update($rdv);
@@ -58,7 +58,7 @@ if (\Promed\Authentification\Authentification::isLoggedOn()) {
         // permet de maintenir un rdv
         if (isset($_POST['maintenir'])) {
             $id = $_POST['id'];
-            // on appelle la méthode uptade
+            // on appelle la méthode update
             $rdv = $RdvDAO->read($id);
             $rdv->setStatut("maintenu");
             $RdvDAO->update($rdv);
@@ -66,13 +66,16 @@ if (\Promed\Authentification\Authentification::isLoggedOn()) {
             header("Refresh:0");
         }
 
-
+        // appel de la vue avec le titre associé
         $titre = "Mes rendez-vous";
-        include RACINE . "/vue/Entete.html.php";
-        include RACINE . "/vue/VueRdvPraticien.php";
-        include RACINE . "/vue/Pied.html.php";
-    } else {
-        $titre = "Authentification";
-        header("Location: ?action=connexion");
+        include PATH_ENTETE;
+        include PATH_RDVPRATICIEN;
+        include PATH_PIED;
+    } else { // l'utilisateur est un patient, il n'a pas accès à cette page, il est donc redirigé
+        $titre = "Mes rendez-vous";
+        header('Location: ?action=rdv-patient');
     }
+} else { // l'utilisateur n'est pas connecté, on affiche le formulaire de connexion
+    $titre = "Authentification";
+    header('Location: ?action=connexion');
 }
