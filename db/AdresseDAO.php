@@ -78,20 +78,5 @@ namespace DAO\Adresse {
             $stmt->bindParam(':id', $id);
             $stmt->execute();
         }
-
-        static function getAdresses()
-        {
-            $sql = "SELECT * FROM adresse";
-            $rep = "<table class=\"table table-striped\">";
-            $rows = Connexion::getInstance()->query($sql);
-            foreach ($rows as $row) {
-                $rep .= "<tr><td>" . $row["id_adresse"];
-                $rep .= "</td><td>" . $row["num"];
-                $rep .= "</td><td>" . $row["rue"];
-                $rep .= "</td><td>" . $row["cp"];
-                $rep .= "</td><td>" . $row["ville"] . "</td></tr>";
-            }
-            return $rep . "</table>";
-        }
     }
 }

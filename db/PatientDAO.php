@@ -1,14 +1,8 @@
 <?php
 
 namespace DAO\Patient {
-
-    use DB\Connexion\Connexion;
-    use Promed\Patient\Patient;
-
     class PatientDAO extends \DAO\DAO
     {
-
-
         function __construct()
         {
             parent::__construct("id_patient", "patient");
@@ -18,7 +12,7 @@ namespace DAO\Patient {
         {
             $sql = "INSERT INTO $this->table (date_de_naissance, id_identite) 
             VALUES (:date_de_naissance, :id_identite)";
-            $stmt = Connexion::getInstance()->prepare($sql);
+            $stmt = \DB\Connexion\Connexion::getInstance()->prepare($sql);
             $date_de_naissance = $objet->getDateDeNaissance();
             $id_identite = $objet->getIdentite();
             $stmt->bindParam(':date_de_naissance', $date_de_naissance);
@@ -30,7 +24,7 @@ namespace DAO\Patient {
         public function read($id)
         {
             $sql = "SELECT * FROM $this->table WHERE $this->key=:id";
-            $stmt = Connexion::getInstance()->prepare($sql);
+            $stmt = \DB\Connexion\Connexion::getInstance()->prepare($sql);
             $stmt->bindParam(':id', $id);
             $stmt->execute();
             $row = $stmt->fetch();
@@ -47,7 +41,7 @@ namespace DAO\Patient {
         public function update($objet)
         {
             $sql = "UPDATE $this->table SET date_de_naissance = :date_de_naissance, id_identite = :id_identite  WHERE $this->key=:id";
-            $stmt = Connexion::getInstance()->prepare($sql);
+            $stmt = \DB\Connexion\Connexion::getInstance()->prepare($sql);
             $id = $objet->getId();
             $date_de_naissance = $objet->getDateDeNaissance();
             $id_identite = $objet->getIdentite()->getId();
@@ -61,23 +55,29 @@ namespace DAO\Patient {
         {
             $sql = "SET FOREIGN_KEY_CHECKS=0; DELETE FROM $this->table WHERE $this->key=:id; 
         SET FOREIGN_KEY_CHECKS=1";
-            $stmt = Connexion::getInstance()->prepare($sql);
+            $stmt = \DB\Connexion\Connexion::getInstance()->prepare($sql);
             $id = $objet->getId();
             $stmt->bindParam(':id', $id);
             $stmt->execute();
         }
 
-        static function getPatients()
+        public function readByIdIdentite($idIdentite)
         {
-            $sql = "SELECT * FROM patient";
-            $rep = "<table class=\"table table-striped\">";
-            $rows = Connexion::getInstance()->query($sql);
-            foreach ($rows as $row) {
-                $rep .= "<tr><td>" . $row["id_patient"];
-                $rep .= "</td><td>" . $row["date_de_naissance"];
-                $rep .= "</td><td>" . $row["id_identite"] . "</td></tr>";
-            }
-            return $rep . "</table>";
+            // On utilise le prepared statemet qui simplifie les typages
+            $sql = "SELECT * FROM $this->table WHERE id_identite=:id";
+            $stmt = \DB\Connexion\Connexion::getInstance()->prepare($sql);
+            $stmt->bindParam(':id', $idIdentite);
+            $stmt->execute();
+
+            $row = $stmt->fetch();
+            $id_patient = $row["id_patient"];
+            $date_de_naissance = $row["date_de_naissance"];
+            $id_identite = $row["id_identite"];
+            $daoIdentite = new \DAO\Identite\IdentiteDAO();
+            $identite = $daoIdentite->read($id_identite);
+            $rep = new \Promed\Patient\Patient($date_de_naissance, $identite);
+            $rep->setId($id_patient);
+            return $rep;
         }
     }
 }

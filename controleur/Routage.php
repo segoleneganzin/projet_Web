@@ -9,12 +9,8 @@ function redirigeVers($action = "defaut")
 {
 
     $lesActions = [];
-    //pour les tests :
-    // $lesActions["defaut"] = "TestC.php";
-    // Sinon :
     $lesActions["defaut"] = "ChoixRole.php";
     $lesActions["deconnexion"] = "Deconnexion.php";
-    $lesActions["notFound"] = "NotFound.php";
     //Pour l'authentification :
     $lesActions["connexion"] = "Authentification.php";
     //*********************************************************Parcours praticien
@@ -27,12 +23,11 @@ function redirigeVers($action = "defaut")
     $lesActions["fiche-patient"] = "FichePatient.php";
     //*********************************************************Parcours Patient
     $lesActions["connexion-patient"] = "Authentification.php";
-    $lesActions["rdv-patient"] = "Rdv.php";
-
+    $lesActions["rdv-patient"] = "ProfilPatient.php";
 
 
     //Pour les tests
-    $lesActions["accueil"] = "TestC.php";
+    $lesActions["scripts"] = "TestC.php";
 
 
     $controler_id = $lesActions[$action];

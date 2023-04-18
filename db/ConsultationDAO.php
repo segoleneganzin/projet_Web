@@ -73,20 +73,6 @@ namespace DAO\Consultation {
             $stmt->execute();
         }
 
-        static function getConsultations()
-        {
-            $sql = "SELECT * FROM Consultation";
-            $rep = "<table class=\"table table-striped\">";
-            $rows = Connexion::getInstance()->query($sql);
-            foreach ($rows as $row) {
-                $rep .= "<tr><td>" . $row["id_consultation"];
-                $rep .= "</td><td>" . $row["type"];
-                $rep .= "</td><td>" . $row["duree"];
-                $rep .= "</td><td>" . $row["tarif"] . "</td></tr>";
-            }
-            return $rep . "</table>";
-        }
-
         public function readAllConsultation()
         {
             // On utilise le prepared statemet qui simplifie les typages
