@@ -2,10 +2,10 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : mar. 18 avr. 2023 à 08:20
--- Version du serveur :  5.7.31
--- Version de PHP : 7.3.21
+-- Host: 127.0.0.1:3306
+-- Generation Time: Apr 18, 2023 at 02:28 PM
+-- Server version: 5.7.31
+-- PHP Version: 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `promed`
+-- Database: `promed`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `adresse`
+-- Table structure for table `adresse`
 --
 
 DROP TABLE IF EXISTS `adresse`;
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `adresse` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `consultation`
+-- Table structure for table `consultation`
 --
 
 DROP TABLE IF EXISTS `consultation`;
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `consultation` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `identite`
+-- Table structure for table `identite`
 --
 
 DROP TABLE IF EXISTS `identite`;
@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `identite` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `patient`
+-- Table structure for table `patient`
 --
 
 DROP TABLE IF EXISTS `patient`;
@@ -90,14 +90,14 @@ CREATE TABLE IF NOT EXISTS `patient` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `praticien`
+-- Table structure for table `praticien`
 --
 
 DROP TABLE IF EXISTS `praticien`;
 CREATE TABLE IF NOT EXISTS `praticien` (
   `id_praticien` int(11) NOT NULL AUTO_INCREMENT,
   `specialiste` varchar(45) NOT NULL,
-  `description` varchar(45) NOT NULL,
+  `description` varchar(300) NOT NULL,
   `id_identite` int(11) NOT NULL,
   PRIMARY KEY (`id_praticien`),
   KEY `fk_Praticien_Identite` (`id_identite`)
@@ -106,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `praticien` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `rdv`
+-- Table structure for table `rdv`
 --
 
 DROP TABLE IF EXISTS `rdv`;
@@ -124,29 +124,29 @@ CREATE TABLE IF NOT EXISTS `rdv` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contraintes pour les tables déchargées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `identite`
+-- Constraints for table `identite`
 --
 ALTER TABLE `identite`
   ADD CONSTRAINT `fk_Identite_Adress1` FOREIGN KEY (`id_adresse`) REFERENCES `adresse` (`id_adresse`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `patient`
+-- Constraints for table `patient`
 --
 ALTER TABLE `patient`
   ADD CONSTRAINT `fk_Patient_Identite1` FOREIGN KEY (`id_identite`) REFERENCES `identite` (`id_identite`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `praticien`
+-- Constraints for table `praticien`
 --
 ALTER TABLE `praticien`
   ADD CONSTRAINT `fk_Praticien_Identite` FOREIGN KEY (`id_identite`) REFERENCES `identite` (`id_identite`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `rdv`
+-- Constraints for table `rdv`
 --
 ALTER TABLE `rdv`
   ADD CONSTRAINT `fk_Rendez_vous_Praticien1` FOREIGN KEY (`id_praticien`) REFERENCES `praticien` (`id_praticien`) ON DELETE NO ACTION ON UPDATE NO ACTION,
