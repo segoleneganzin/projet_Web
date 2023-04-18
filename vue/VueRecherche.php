@@ -2,9 +2,8 @@
     <h1>Rechercher un patient</h1>
     <hr />
     <div class="form">
-
         <form class="form--input-container" action="" method="POST">
-            <select name="identite_id">
+            <select name="id_identite">
                 <?php foreach ($identites as $identite) : ?>
                     <option value="<?php echo $identite->getId(); ?>">
                         <?php echo $identite->getNom() . ' ' . $identite->getPrenom(); ?>

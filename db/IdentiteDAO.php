@@ -95,24 +95,6 @@ namespace DAO\Identite {
             $stmt->execute();
         }
 
-        static function getIdentites()
-        {
-            $sql = "SELECT * FROM identite";
-            $rep = "<table class=\"table table-striped\">";
-            $rows = Connexion::getInstance()->query($sql);
-            foreach ($rows as $row) {
-                $rep .= "<tr><td>" . $row["id_identite"];
-                $rep .= "</td><td>" . $row["nom"];
-                $rep .= "</td><td>" . $row["prenom"];
-                $rep .= "</td><td>" . $row["tel"];
-                $rep .= "</td><td>" . $row["mail"];
-                $rep .= "</td><td>" . $row["mdp"];
-                $rep .= "</td><td>" . $row["role"];
-                $rep .= "</td><td>" . $row["id_adresse"] . "</td></tr>";
-            }
-            return $rep . "</table>";
-        }
-
         public function readAllPatients()
         {
             $sql = "SELECT * FROM $this->table WHERE role = 'patient' ";

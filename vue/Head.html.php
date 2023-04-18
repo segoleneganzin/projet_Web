@@ -3,14 +3,11 @@
 	<meta charset="UTF-8" />
 	<meta name="robots" content="noindex" />
 	<meta name="googlebot" content="noindex" />
-	<meta name="description" content="" />
+	<meta name="description" content="Application de gestion de rendez-vous pour les professions libérales" />
 	<meta name="author" content="" />
-	<!-- bootstrap -->
-	<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script> -->
 	<!-- JS -->
 	<script src="asset/js/jquery.min.js"></script>
-	<script src="asset/js/form.js"></script>
+	<script src="asset/js/formInscription.js"></script>
 	<!-- static local -->
 	<link href="asset/stylesheet/style.css" rel="stylesheet" />
 	<title><?= $titre ?></title>

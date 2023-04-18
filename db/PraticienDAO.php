@@ -76,21 +76,6 @@ namespace DAO\Praticien {
             $stmt->execute();
         }
 
-
-        static function getPraticiens()
-        {
-            $sql = "SELECT * FROM praticien";
-            $rep = "<table class=\"table table-striped\">";
-            $rows = Connexion::getInstance()->query($sql);
-            foreach ($rows as $row) {
-                $rep .= "<tr><td>" . $row["id_praticien"];
-                $rep .= "</td><td>" . $row["specialiste"];
-                $rep .= "</td><td>" . $row["description"];
-                $rep .= "</td><td>" . $row["id_identite"] . "</td></tr>";
-            }
-            return $rep . "</table>";
-        }
-
         public function readByIdIdentite($idIdentite)
         {
             // On utilise le prepared statemet qui simplifie les typages

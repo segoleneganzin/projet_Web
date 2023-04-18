@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 14 avr. 2023 à 13:44
+-- Généré le : mar. 18 avr. 2023 à 08:20
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -116,6 +116,7 @@ CREATE TABLE IF NOT EXISTS `rdv` (
   `id_praticien` int(11) NOT NULL,
   `id_patient` int(11) NOT NULL,
   `id_consultation` int(11) NOT NULL,
+  `statut` varchar(32) NOT NULL,
   PRIMARY KEY (`id_rdv`),
   KEY `fk_Rendez_vous_Praticien1` (`id_praticien`),
   KEY `id_patient` (`id_patient`),
