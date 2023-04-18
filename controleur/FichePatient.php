@@ -45,8 +45,9 @@ if (\Promed\Authentification\Authentification::isLoggedOn()) { // si l'utilisate
 
         // récupérer l'Id Patient pour la prise de rendez-vous :
         $id_patient = $patientDAO->readByIdIdentite($id_identite)->getId();
-
-
+        var_dump($id_identite);
+        var_dump($id_patient);
+        var_dump($id_praticien);
         //Obtenir les types de consultations
         $consultations = $consultationDao->readAllConsultation();
 

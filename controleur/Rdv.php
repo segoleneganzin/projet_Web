@@ -68,13 +68,8 @@ if (\Promed\Authentification\Authentification::isLoggedOn()) {
 
 
         $titre = "Mes rendez-vous";
-        if (isset($_GET["action"]) && $_GET["action"] == "rdv-praticien") {
-            include RACINE . "/vue/Entete.html.php";
-            include RACINE . "/vue/VueRdvPraticien.php";
-        } else {
-            include RACINE . "/vue/Entete.html.php";
-            include RACINE . "/vue/VueRdvPatient.php";
-        }
+        include RACINE . "/vue/Entete.html.php";
+        include RACINE . "/vue/VueRdvPraticien.php";
         include RACINE . "/vue/Pied.html.php";
     } else {
         $titre = "Authentification";
