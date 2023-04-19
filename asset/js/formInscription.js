@@ -56,7 +56,6 @@ $(function () {
     }
 
     if ($("#email").val() != "") {
-      console.log("check mail");
       if (validateEmail($("#email").val())) {
         if (
           nom != "" &&
@@ -135,7 +134,6 @@ $(function () {
       cp: $("#cp").val(),
       ville: $("#ville").val(),
     };
-    // console.log(valeurs);
 
     let nom = $("#nom").val();
     let prenom = $("#prenom").val();
@@ -159,7 +157,6 @@ $(function () {
     ) {
       $("input").each(function () {
         if ($(this).val() == "") {
-          console.log("check empty");
           $(this).addClass("error");
         } else {
           $(this).removeClass("error");
