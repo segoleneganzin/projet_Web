@@ -89,7 +89,7 @@ $(function () {
                 } else {
                   $("#content").html(retour);
                   document.location.href =
-                    "http://localhost/projet_Web/?action=connexion";
+                    "?action=connexion";
                 }
               },
             });
@@ -192,7 +192,7 @@ $(function () {
             success: function (retour) {
               $("#content").html(retour);
               document.location.href =
-                "http://localhost/projet_Web/?action=recherche";
+                "?action=recherche";
             },
           });
         }

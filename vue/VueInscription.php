@@ -41,7 +41,7 @@
 
             <input type="submit" value="S'enregistrer" class="button-submit" id="button-submit" />
 
-            <br /><a href="http://localhost/projet_Web">Retour</a>
+            <br /><a href="./">Retour</a>
 
             <div id="content"></div>
         </div>

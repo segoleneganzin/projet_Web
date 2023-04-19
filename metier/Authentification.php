@@ -35,7 +35,7 @@ namespace Promed\Authentification {
             unset($_SESSION["mail"]);
             unset($_SESSION["mdp"]);
             unset($_SESSION["role"]);
-            header('Location: http://localhost/projet_Web');
+            header('Location: ./');
         }
 
         static function isLoggedOn()
