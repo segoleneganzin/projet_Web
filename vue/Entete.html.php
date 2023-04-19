@@ -17,14 +17,13 @@ if (isset($_SESSION["role"])) {
 
         <body>
             <header>
-                <nav>
-                    <ul id="menuGeneral">
-                        <li id="logo"><img src="asset/images/promed_logo_3.png" alt="logo" /></li>
-                        <li><a href="./?action=creation-patient">Ajouter patients</a></li>
-                        <li><a href="./?action=recherche">Chercher patient</a></li>
-                        <li><a href="./?action=rdv-praticien">Mes rendez-vous</a></li>
-                        <li><a href="./?action=deconnexion">Déconnexion</a></li>
-                    </ul>
+                <img src="asset/images/promed_logo_3.png" alt="logo" />
+                <nav class="menu">
+                    <a class="item-menu" href="./?action=creation-patient">Ajouter patients</a>
+                    <a class="item-menu" href="./?action=recherche">Chercher patient</a>
+                    <a class="item-menu" href="./?action=rdv-praticien">Mes rendez-vous</a>
+                    <a class="item-menu" href="./?action=deconnexion">Déconnexion</a>
+
                 </nav>
             </header>
             <main>
@@ -36,16 +35,12 @@ if (isset($_SESSION["role"])) {
 
                 <body>
                     <header>
-                        <nav>
-                            <ul id="menuGeneral">
-                                <li id="logo"><a href="./?action=accueil"><img src="asset/images/promed_logo_3.png" alt="logo" /></a></li>
-                                <li><a href="./?action=deconnexion">Déconnexion</a></li>
-                            </ul>
+                        <img src="asset/images/promed_logo_3.png" alt="logo" />
+                        <nav class="menu">
+                            <a class="item-menu" href="./?action=deconnexion">Déconnexion</a>
                         </nav>
                     </header>
-                    <main>
-
-                <?php
-            }
+            <?php
         }
-                ?>
+    }
+            ?>

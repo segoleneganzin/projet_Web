@@ -1,83 +1,38 @@
-nav {
-  //   position: fixed;
-  left: 0px;
-  width: 100vw;
-  z-index: 100;
-
-  #menuGeneral {
-    text-align: center;
-    margin: auto auto;
-    list-style-type: none;
-    padding-left: 0px;
-
-    li {
-      float: left;
-      width: 14.28%;
-      height: 100%;
-      vertical-align: middle;
-      line-height: 60px;
-
-      a {
-        display: inline-block;
-        vertical-align: middle;
-        text-decoration: none;
-        font-size: 16px;
-        font-weight: bold;
-        color: $secondary-text_color;
-
-        &:hover {
-          color: $container-back_color;
-        }
-      }
-
-      img {
-        width: 10vw;
-        position: relative;
-        top: -10px;
-      }
+header img {
+  display: block;
+  width: 30vw;
+  margin: auto;
+  padding: 2%;
+}
+.menu {
+  display: flex;
+  padding: 2% 0 2% 0;
+  border-top: 2px solid $secondary-text_color;
+  border-bottom: 2px solid $secondary-text_color;
+  background-color: $nav-back-color;
+  @media screen and (max-width: 1040px) {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2% 0 0;
+    text-align: right;
+  }
+  .item-menu {
+    font-size: 20px;
+    display: block;
+    padding: 10px;
+    margin: auto;
+    color: $secondary-text_color;
+    font-weight: 600;
+    &:hover {
+      color: $container-back_color;
     }
   }
 }
 
-// #menuContextuel {
-//   position: fixed;
-//   height: 100%;
-//   z-index: 0;
-//   overflow: hidden;
-//   margin-top: 0px;
-//   padding-top: 0px;
-//   list-style-type: none;
-//   padding-left: 0px;
-//   border-radius: 3px;
-//   li {
-//     padding-top: 5px;
-//     padding-bottom: 5px;
-//     margin-top: 0px;
-//     margin-bottom: 0px;
-//     padding-left: 8px;
-//     &:first-child {
-//       text-align: center;
-//     }
-//     a {
-//       font-weight: bold;
-//       text-decoration: none;
-//     }
-//   }
-// }
-
 @media screen and (max-width: 1200px) {
-  #menuGeneral {
-    width: 80vw;
+  .menu {
     display: flex;
     flex-direction: column;
-
-    li a {
-      display: block;
-      width: 80vw;
-
-      img {
-        width: 100vw;
-      }
-    }
+    text-align: center;
   }
 }
