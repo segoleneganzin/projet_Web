@@ -272,27 +272,27 @@
     $createIdentite = $daoIdentite->create($obj);
 
     //**------------Création patient--------------------
-    $obj = new \Promed\Patient\Patient("2000-01-01", 5);
+    $obj = new \Promed\Patient\Patient("2000-01-01", 1);
     $daoPatient->create($obj);
-    $obj = new \Promed\Patient\Patient("2000-02-02", 4);
+    $obj = new \Promed\Patient\Patient("2000-02-02", 2);
     $daoPatient->create($obj);
     $obj = new \Promed\Patient\Patient("2000-03-03", 3);
     $daoPatient->create($obj);
-    $obj = new \Promed\Patient\Patient("2000-04-04", 2);
+    $obj = new \Promed\Patient\Patient("2000-04-04", 4);
     $daoPatient->create($obj);
-    $obj = new \Promed\Patient\Patient("2000-05-05", 1);
+    $obj = new \Promed\Patient\Patient("2000-05-05", 5);
     $daoPatient->create($obj);
 
     //**------------Création praticien--------------------
-    $obj = new \Promed\Praticien\Praticien("Ophtalmologue", "Chargé du traitement des maladies de l'œil et de ses annexes.", 10);
+    $obj = new \Promed\Praticien\Praticien("Ophtalmologue", "Chargé du traitement des maladies de l'œil et de ses annexes.", 6);
     $daoPraticien->create($obj);
-    $obj = new \Promed\Praticien\Praticien("Kinesithérapeute", "Emploie le mouvement dans le but de renforcer, maintenir ou rétablir les capacités fonctionnelles.", 9);
+    $obj = new \Promed\Praticien\Praticien("Kinesithérapeute", "Emploie le mouvement dans le but de renforcer, maintenir ou rétablir les capacités fonctionnelles.", 7);
     $daoPraticien->create($obj);
     $obj = new \Promed\Praticien\Praticien("Osthéopathe", "Travaille sur les articulations, les muscles et les tendons tout en considérant le corps dans sa globalité.", 8);
     $daoPraticien->create($obj);
-    $obj = new \Promed\Praticien\Praticien("Dermatologue", "S'occupe de la peau, des muqueuses et des phanères", 7);
+    $obj = new \Promed\Praticien\Praticien("Dermatologue", "S'occupe de la peau, des muqueuses et des phanères", 9);
     $daoPraticien->create($obj);
-    $obj = new \Promed\Praticien\Praticien("Orthopédiste", "Ils traitent les affections touchant toutes les parties du membre et de ses articulations, os, cartilages, tendons, ligaments.", 6);
+    $obj = new \Promed\Praticien\Praticien("Orthopédiste", "Ils traitent les affections touchant toutes les parties du membre et de ses articulations, os, cartilages, tendons, ligaments.", 10);
     $daoPraticien->create($obj);
 
     //**------------Création consultation--------------------
@@ -333,12 +333,6 @@
     $obj = new \Promed\Rdv\Rdv(date("Y-m-d H:i:s", strtotime("+ 1 day")), 5, 1, 2, "demande d'annulation");
     $daoRdv->create($obj);
     $obj = new \Promed\Rdv\Rdv(date("Y-m-d H:i:s", strtotime("+ 2 day")), 5, 1, 3, "annulé");
-    $daoRdv->create($obj);
-    $obj = new \Promed\Rdv\Rdv(date("Y-m-d H:i:s", strtotime("+ 2 hours")), 4, 1, 1, "maintenu");
-    $daoRdv->create($obj);
-    $obj = new \Promed\Rdv\Rdv(date("Y-m-d H:i:s", strtotime("+ 1 day")), 4, 1, 2, "demande d'annulation");
-    $daoRdv->create($obj);
-    $obj = new \Promed\Rdv\Rdv(date("Y-m-d H:i:s", strtotime("+ 2 day")), 4, 1, 3, "annulé");
     $daoRdv->create($obj);
     echo "La data a été créée dans la BD 👍";
 
