@@ -5,26 +5,37 @@
   border-radius: 10px;
   border: 2px solid $secondary-text-color;
   padding: 2% 5%;
+
   h1 {
     font-size: 2rem;
     margin-bottom: 2%;
     color: $secondary-text-color;
   }
+
   hr {
     margin-bottom: 2%;
   }
+
   table,
   th,
   td {
     border: 2px solid black;
     padding-left: 1%;
   }
+
   table {
     width: 100%;
     margin: 5% auto;
   }
+
   thead {
     text-align: center;
     height: 10vh;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 90vw;
   }
 }

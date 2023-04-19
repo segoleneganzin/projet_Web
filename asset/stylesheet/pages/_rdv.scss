@@ -2,22 +2,32 @@
   h2 {
     margin-bottom: 2%;
   }
+
   .date {
     display: flex;
     justify-content: center;
     align-items: center;
+
     input {
       padding: 2%;
       margin: 2%;
     }
+
     button {
       padding: 2%;
       height: fit-content;
       border-radius: 10px;
       border: none;
+
       &:hover {
         cursor: pointer;
       }
     }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .affichage-liste-rdv {
+    overflow-x: auto;
   }
 }
