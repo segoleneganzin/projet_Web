@@ -1,5 +1,3 @@
-<!-- TODO condition d'affichage selon le role (patient/praticien) -->
-
 <div class="container rdv">
     <h1>Page rendez-vous</h1>
     <hr />
