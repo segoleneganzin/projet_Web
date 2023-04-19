@@ -37,53 +37,45 @@ a:hover {
   color: #007cc5;
 }
 
-nav {
-  left: 0px;
-  width: 100vw;
-  z-index: 100;
+header img {
+  display: block;
+  width: 30vw;
+  margin: auto;
+  padding: 2%;
 }
-nav #menuGeneral {
-  text-align: center;
-  margin: auto auto;
-  list-style-type: none;
-  padding-left: 0px;
+
+.menu {
+  display: flex;
+  padding: 2% 0 2% 0;
+  border-top: 2px solid #007cc5;
+  border-bottom: 2px solid #007cc5;
+  background-color: #b9d3ed;
 }
-nav #menuGeneral li {
-  float: left;
-  width: 14.28%;
-  height: 100%;
-  vertical-align: middle;
-  line-height: 60px;
+@media screen and (max-width: 1040px) {
+  .menu {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2% 0 0;
+    text-align: right;
+  }
 }
-nav #menuGeneral li a {
-  display: inline-block;
-  vertical-align: middle;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: bold;
+.menu .item-menu {
+  font-size: 20px;
+  display: block;
+  padding: 10px;
+  margin: auto;
   color: #007cc5;
+  font-weight: 600;
 }
-nav #menuGeneral li a:hover {
+.menu .item-menu:hover {
   color: #55555d;
-}
-nav #menuGeneral li a img {
-  width: 10vw;
-  position: relative;
-  top: -10px;
 }
 
 @media screen and (max-width: 1200px) {
-  #menuGeneral {
-    width: 80vw;
+  .menu {
     display: flex;
     flex-direction: column;
-  }
-  #menuGeneral li a {
-    display: block;
-    width: 80vw;
-  }
-  #menuGeneral li a img {
-    width: 100vw;
+    text-align: center;
   }
 }
 .form {

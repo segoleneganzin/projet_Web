@@ -11,13 +11,11 @@ function redirigeVers($action = "defaut")
     $lesActions = [];
     $lesActions["defaut"] = "ChoixRole.php";
     $lesActions["deconnexion"] = "Deconnexion.php";
-    //Pour l'authentification :
     $lesActions["connexion"] = "Authentification.php";
     //*********************************************************Parcours praticien
     $lesActions["inscription"] = "Inscription.php";
     $lesActions["connexion-praticien"] = "Authentification.php";
     $lesActions["rdv-praticien"] = "Rdv.php";
-    $lesActions["profil-praticien"] = "ProfilPraticien.php";
     $lesActions["creation-patient"] = "CreationPatient.php";
     $lesActions["recherche"] = "Recherche.php";
     $lesActions["fiche-patient"] = "FichePatient.php";
@@ -25,10 +23,8 @@ function redirigeVers($action = "defaut")
     $lesActions["connexion-patient"] = "Authentification.php";
     $lesActions["rdv-patient"] = "ProfilPatient.php";
 
-
     //Pour les tests
     $lesActions["scripts"] = "TestC.php";
-
 
     $controler_id = $lesActions[$action];
 

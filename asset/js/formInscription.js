@@ -1,10 +1,7 @@
 // *********************************************inscription nouveau praticien
 $(function () {
   $("#button-submit").on("click", function () {
-    // alert("ok");
-    // return false;
 
-    // console.log("button click");
     let valeurs = {
       nom: $("#nom").val(),
       prenom: $("#prenom").val(),
@@ -89,11 +86,10 @@ $(function () {
                 } else {
                   $("#content").html(retour);
                   document.location.href =
-                    "http://localhost/projet_Web/?action=connexion";
+                    "?action=connexion";
                 }
               },
             });
-            alert("coucou ajax");
           } else {
             $("#mdp").addClass("error");
             alert("Format de mot de passe invalide");
@@ -192,7 +188,7 @@ $(function () {
             success: function (retour) {
               $("#content").html(retour);
               document.location.href =
-                "http://localhost/projet_Web/?action=recherche";
+                "?action=recherche";
             },
           });
         }
