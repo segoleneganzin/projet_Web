@@ -30,14 +30,15 @@ if (\Promed\Authentification\Authentification::isLoggedOn()) {
             $ville = $_POST["ville"];
 
             //pour generer un mdp (ex : DUPOND02111990)
-            // $formatage_date_naissance = $date_naissance->format('d-m-Y');
-            // $formatage_nom = str_replace(" ", "", $nom);
-            // $nomMdp = strtoupper($formatage_nom);
-            // $dateMdp = str_replace("-", "", $formatage_date_naissance);
-            // $mdp = $nomMdp . $dateMdp;
+            $timestamp_date = strtotime($date_naissance);
+            $formatage_date_naissance = date('d-m-Y', $timestamp_date);
+            $formatage_nom = str_replace(" ", "", $nom);
+            $nomMdp = strtoupper($formatage_nom);
+            $dateMdp = str_replace("-", "", $formatage_date_naissance);
+            $mdp = $nomMdp . $dateMdp;
 
             //mot de passe pour les test
-            $mdp = "toto";
+            // $mdp = "toto";
 
             // inscription
             \Promed\Inscription\Inscription::inscriptionPatient($nom, $prenom, $date_naissance, $tel, $email, $num, $rue, $cp, $ville, $mdp);

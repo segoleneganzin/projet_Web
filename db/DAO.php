@@ -2,8 +2,6 @@
 
 namespace DAO {
 
-    use DB\Connexion\Connexion;
-
     abstract class DAO
     {
 
@@ -28,7 +26,7 @@ namespace DAO {
         function getLastKey()
         {
 
-            return Connexion::getInstance()->lastInsertId();
+            return \DB\Connexion\Connexion::getInstance()->lastInsertId();
         }
     }
 }

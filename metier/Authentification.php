@@ -53,15 +53,5 @@ namespace Promed\Authentification {
             }
             return $ret;
         }
-
-        function getMailULoggedOn()
-        {
-            if (Authentification::isLoggedOn()) {
-                $ret = $_SESSION["mail"];
-            } else {
-                $ret = null;
-            }
-            return $ret;
-        }
     }
 }
