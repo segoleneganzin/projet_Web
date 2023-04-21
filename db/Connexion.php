@@ -13,7 +13,7 @@ namespace DB\Connexion {
                 $PARAM_hote = 'localhost'; //serveur local (redirige vers MYSQL via le port 3306 par défaut)
 
                 //config serveur sio
-                $PARAM_nom_bd = 'promo23_melwin';  // nom de la base de données
+                $PARAM_nom_bd = 'promo23_mariecaroline';  // nom de la base de données
                 $username = 'promo23'; // nom d'utilisateur
                 $password = 'user@sio23'; // mot de passe de l'utilisateur
 
