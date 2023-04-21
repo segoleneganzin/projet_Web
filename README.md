@@ -42,9 +42,9 @@ http://localhost/Projet_Web_Promed/?action=scripts
 
 ## Accès et mots de passes :
 
-Si les scripts ont été généré il est possible de se connecter avec :
-*accès praticien --> identifiant : praticien1@mail.com mot de passe : toto
-*accès patient --> identifiant : patient1@mail.com mot de passe : toto
+Si les scripts ont été généré il est possible de se connecter avec : <br/>
+*accès praticien --> identifiant : praticien1@mail.com mot de passe : toto <br/>
+*accès patient --> identifiant : patient1@mail.com mot de passe : toto <br/>
 
 ## Lancer en localhost
 
