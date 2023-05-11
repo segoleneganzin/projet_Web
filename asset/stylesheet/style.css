@@ -187,6 +187,17 @@ header img {
     width: 90vw;
   }
 }
+footer {
+  color: #55555d;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  bottom: 0;
+  margin: auto;
+  width: 100%;
+  align-items: center;
+}
+
 .image-connexion {
   width: 50vw;
   margin: 5vh auto;
@@ -230,6 +241,7 @@ header img {
   border-radius: 10px;
 }
 .recherche .form--input-container input {
+  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   margin: 2% auto;
@@ -249,6 +261,7 @@ header img {
 }
 .rdv .date button {
   padding: 2%;
+  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   border-radius: 10px;
