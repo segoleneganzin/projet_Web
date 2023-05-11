@@ -1,0 +1,10 @@
+footer {
+  color: $container-back_color;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  bottom: 0;
+  margin: auto;
+  width: 100%;
+  align-items: center;
+}

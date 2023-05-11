@@ -35,7 +35,7 @@ Il faut modifier le fichier « connexion.php » dans le package « db » afin de
 
 Extension VSCODE : Live Sass Compiler
 
-## Génération de data dans la base de données :
+## Génération de data dans la base de données locale :
 
 Pour générer la création automatique de data dans la base de données il faut se rendre à cette adresse :
 http://localhost/Projet_Web_Promed/?action=scripts
