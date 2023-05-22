@@ -18,9 +18,9 @@ namespace DB\Connexion {
                 //$password = 'user@sio23'; // mot de passe de l'utilisateur
 
                 //config serveur local
-                 $PARAM_nom_bd = 'promed';  // nom de la base de données
-                 $username = 'root'; // nom d'utilisateur
-                 $password = ''; // mot de passe de l'utilisateur
+                $PARAM_nom_bd = 'promed';  // nom de la base de données
+                $username = 'root'; // nom d'utilisateur
+                $password = ''; // mot de passe de l'utilisateur
 
                 $dsn = "mysql:host=$PARAM_hote:3306;dbname=$PARAM_nom_bd";
 
