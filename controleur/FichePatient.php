@@ -58,8 +58,6 @@ if (\Promed\Authentification\Authentification::isLoggedOn()) { // on vérifie si
                 $rdv = new Promed\Rdv\Rdv($dateRdvSql, $id_praticien, $id_patient, $type, "maintenu");
                 if (Promed\Praticien\Praticien::rdvExiste($dateRdvSql, $id_praticien)){
                     $rdvDAO->create($rdv);
-                }else{
-                    echo "<script>alert('ça marche pas jfjhgjggh.');</script>";
                 }
                 //echo "Rendez-vous pris le ".$date." à ".$heure." pour ".$patient_id." fait par ". $idPraticien;
                 header('Location: ?action=recherche'); // a voir pour un récap plutôt (au moins là on évite que le rdv se crée de nouveau au rechargement)

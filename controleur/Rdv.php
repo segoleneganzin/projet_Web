@@ -45,7 +45,7 @@ if (\Promed\Authentification\Authentification::isLoggedOn()) {
         }
 
         // permet d'annuler un rdv
-        if (isset($_POST['annuler'])) {
+        if (isset($_POST['suppr'])) {
             $id = $_POST['id'];
             // on appelle la méthode update
             $rdv = $RdvDAO->read($id);
