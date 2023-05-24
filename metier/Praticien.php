@@ -71,13 +71,14 @@ namespace Promed\Praticien {
             return $rep;
         }
 
-        static function rdvExiste($dateRdvSql, $id_praticien) {
-            $rep = true;
+        static function rdvExisteDeja($dateRdvSql, $id_praticien)
+        {
+            $rep = false;
             $rdvDAO = new \DAO\Rdv\RdvDAO();
             $rdvs = $rdvDAO->readAllRdv();
             foreach ($rdvs as $rdv) {
                 if ($rdv->getDateRdv() === $dateRdvSql && $rdv->getPrat()->getId() === $id_praticien) {
-                    $rep = false;
+                    $rep = true;
                 }
             }
             return $rep;
