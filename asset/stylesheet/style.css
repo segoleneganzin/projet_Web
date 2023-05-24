@@ -208,7 +208,7 @@ footer {
   flex-direction: column;
   align-items: center;
   font-size: 2rem;
-  margin-top: 30vh;
+  margin-top: 10vh;
   padding: 5%;
 }
 .choixRole a {
@@ -241,6 +241,7 @@ footer {
   border-radius: 10px;
 }
 .recherche .form--input-container input {
+  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   margin: 2% auto;
@@ -260,6 +261,7 @@ footer {
 }
 .rdv .date button {
   padding: 2%;
+  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   border-radius: 10px;
