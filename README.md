@@ -9,7 +9,7 @@ Dans ce but, l’application nommée ProMed aura pour objectif de permettre aux 
 Les praticiens pourront organiser les heures de rendez-vous.<br>
 Il y aura également une autre partie réservée exclusivement aux patients, pour leur permettre de visualiser leurs rendez-vous à venir et pouvoir éventuellement les annuler.<br>
 
-<b>Langages et technologies utilisés :<b>
+## Langages et technologies utilisés :
 
 <ul>
   <li>HTML</li>
