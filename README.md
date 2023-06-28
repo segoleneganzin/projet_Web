@@ -1,6 +1,14 @@
-# Projet Web
+# Projet Web : application web de gestion de rendez-vous médicaux.
 
 Projet Web dans le cadre du BTS Services informatiques aux organisations, option Solutions Logicielles et Applications Métier <br>
+
+# Contexte :
+La société MediConcept souhaite la mise en place d’une interface de gestion individualisée en ligne, pour les praticiens.<br>
+Dans le but de développer sa présence sur internet, la société MediConcept désire développer une interface de gestion en ligne à l’usage exclusif des professions libérales de santé, telles que les kinésithérapeutes, psychothérapeutes, ergothérapeutes, orthophonistes, diététiciens et autres professions médicales.<br>
+Dans ce but, l’application nommée ProMed aura pour objectif de permettre aux praticiens de gérer à distance leur patientèle, et ce en toute sécurité. <br>
+Les praticiens pourront organiser les heures de rendez-vous.<br>
+Il y aura également une autre partie réservée exclusivement aux patients, pour leur permettre de visualiser leurs rendez-vous à venir et pouvoir éventuellement les annuler.<br>
+
 <b>Langages et technologies utilisés :<b>
 
 <ul>
